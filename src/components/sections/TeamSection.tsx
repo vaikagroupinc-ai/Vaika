@@ -78,7 +78,9 @@ export const TeamSection: React.FC<TeamSectionProps> = () => {
                 <span
                   key={idx}
                   className={`px-3 py-1 rounded bg-[#161720] border border-white/5 ${
-                    idx === 2 ? 'text-[#d4af37]' : 'text-[#f5f6fa]'
+                    idx === FOUNDER_DATA.credentials.length - 1
+                      ? 'text-[#d4af37] border-[#d4af37]/30'
+                      : 'text-[#f5f6fa]'
                   }`}
                 >
                   {cred}

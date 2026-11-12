@@ -1017,7 +1017,7 @@ export const FOUNDER_DATA = {
   name: 'MURAMALLA VIJAY KUMAR',
   protocol: 'V-CORE-001',
   role: 'FOUNDER • VAIKA GROUP',
-  titles: 'VFX & CINEMATIC ARTIST • FOUNDER',
+  titles: 'REAL ESTATE VISUAL EXPERT • VFX & CINEMATIC ARTIST • FOUNDER',
   quote:
     '“We don’t just deliver media; we forge visual authority. Bringing together a decade of hands-on visual craft, VFX precision, and AI intelligence to build beyond traditional boundaries.”',
   bio: 'Starting my journey in January 2015 as a Real Estate Image Editor, I evolved through professional editing, VFX filmmaking, independent freelancing, and AI data annotation, building over a decade of hands-on experience across creative and digital industries.\n\nIn February 2026, I founded Vaika Group, bringing together my experience in real estate, visual storytelling, VFX, and artificial intelligence to build something beyond traditional creative services.',
@@ -1025,6 +1025,7 @@ export const FOUNDER_DATA = {
   imageAlt: 'Executive portrait of Muramalla Vijay Kumar, Founder of VAIKA GROUP',
   credentials: [
     '10+ YEARS CREATIVE EXPERIENCE',
+    'REAL ESTATE VISUAL EXPERT',
     'VFX & CINEMATIC ARTIST',
     'FOUNDER • VAIKA GROUP'
   ]
