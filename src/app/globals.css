@@ -1,26 +1,173 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050507;
+  --surface: #12131a;
+  --surface-dim: #0a0a0f;
+  --surface-bright: #383941;
+  --surface-container-lowest: #050507;
+  --surface-container-low: #0f1017;
+  --surface-container: #161720;
+  --surface-container-high: #20222d;
+  --surface-container-highest: #2b2e3c;
+  --on-surface: #f5f6fa;
+  --on-surface-variant: #9ba1b3;
+  --outline: #525866;
+  --outline-variant: #232634;
+  --tertiary: #d4af37;
+  --tertiary-container: #080500;
+  --cyan-accent: #00f0ff;
+  --violet-accent: #8b5cf6;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-cyan: var(--cyan-accent);
+  --color-violet: var(--violet-accent);
+
+  --font-display-hero: var(--font-space-grotesk), sans-serif;
+  --font-headline: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-manrope), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base resets & typography */
+html {
+  color-scheme: dark;
+}
+
+html[data-scroll-behavior="smooth"] {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+  selection-background-color: var(--tertiary);
+  selection-color: #050507;
+}
+
+::selection {
+  background: #d4af37;
+  color: #050507;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #232634;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Glassmorphism & elevation utility classes */
+.glass-panel {
+  background: rgba(18, 19, 26, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: rgba(18, 19, 26, 0.75);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 30px -8px rgba(212, 175, 55, 0.15);
+}
+
+.glass-panel-cyan {
+  background: rgba(18, 19, 26, 0.75);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 30px -8px rgba(0, 240, 255, 0.15);
+}
+
+.glass-panel-violet {
+  background: rgba(18, 19, 26, 0.75);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 30px -8px rgba(139, 92, 246, 0.15);
+}
+
+/* Marquee keyframe animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Monolith Glow Animation */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+/* ── VAIKA INTRO WEBSITE TRANSITION ── */
+#website-root {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#website-root.revealed {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease;
+}
+
+#site-nav {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+#site-nav.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
 }

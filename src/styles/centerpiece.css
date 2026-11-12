@@ -1,0 +1,442 @@
+/* ==================================================
+   INTERACTIVE CENTERPIECE ("WIREFRAME TO GRADED REALITY")
+   Scoped variables avoid overriding site-wide tokens in globals.css
+   ================================================== */
+.hero-centerpiece-mount {
+  --cp-gold: #d4af37;
+  --cp-gold-light: #f5d895;
+  --cp-text-secondary: rgba(255, 255, 255, 0.65);
+  --cp-text-muted: rgba(255, 255, 255, 0.45);
+  --cp-font-mono: var(--font-space-grotesk), 'Space Grotesk', monospace;
+
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-centerpiece-wrapper {
+  position: relative;
+  width: min(100%, 1080px);
+  height: clamp(380px, 52vh, 600px);
+  border-radius: 20px;
+  background: rgba(8, 9, 14, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+  cursor: crosshair;
+}
+
+/* Counter-Rotating Orbit Rings */
+.hero-orbit-rings-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.14);
+  box-shadow: none;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle, transparent 42%, rgba(0, 0, 0, 0.85) 75%, rgba(0, 0, 0, 0.35) 100%);
+  mask-image: radial-gradient(circle, transparent 42%, rgba(0, 0, 0, 0.85) 75%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.hero-orbit-ring.orbit-ring-inner {
+  width: clamp(280px, 42vw, 540px);
+  height: clamp(280px, 42vw, 540px);
+  opacity: 0.7;
+  animation: counter-orbit-spin 45s linear infinite;
+}
+
+.hero-orbit-ring.orbit-ring-outer {
+  width: clamp(360px, 56vw, 720px);
+  height: clamp(360px, 56vw, 720px);
+  border-style: solid;
+  border-color: rgba(212, 175, 55, 0.08);
+  opacity: 0.55;
+  animation: counter-orbit-spin 60s linear infinite reverse;
+}
+
+@keyframes counter-orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Layer 0: Wireframe Canvas (Three.js WebGL) */
+.villa-wireframe-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  display: block;
+}
+
+.hero-static-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Layer 1: Graded Photo with CSS Radial Mask */
+.graded-lens-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    circle var(--lens-radius, 170px) at var(--x, 50%) var(--y, 50%),
+    #000 97%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--lens-radius, 170px) at var(--x, 50%) var(--y, 50%),
+    #000 97%,
+    transparent 100%
+  );
+  transition: filter 0.4s ease;
+}
+
+.graded-villa-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Floating Develop Hint */
+.lens-develop-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(5, 5, 5, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+  font-family: var(--cp-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--cp-gold-light);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lens-develop-hint.fade-out {
+  opacity: 0;
+  transform: translate(-50%, -60%) scale(0.9);
+}
+
+.hint-icon {
+  color: var(--cp-gold);
+}
+
+/* ==================================================
+   LAYER 2: LENS UI & HUD OVERLAY
+   ================================================== */
+.lens-hud-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.lens-reticle-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--lens-radius, 170px) * 2);
+  height: calc(var(--lens-radius, 170px) * 2);
+  transform: translate3d(
+    calc(var(--x, 50%) - var(--lens-radius, 170px)),
+    calc(var(--y, 50%) - var(--lens-radius, 170px)),
+    0
+  );
+  pointer-events: none;
+  will-change: transform;
+}
+
+.lens-inner-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.75);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35), inset 0 0 16px rgba(212, 175, 55, 0.15);
+}
+
+.lens-outer-dial {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  animation: dial-rotate 25s linear infinite;
+}
+
+@keyframes dial-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.lens-crosshair {
+  position: absolute;
+  background: var(--cp-gold);
+}
+
+.ch-top { top: -14px; left: 50%; transform: translateX(-50%); width: 1px; height: 10px; }
+.ch-bottom { bottom: -14px; left: 50%; transform: translateX(-50%); width: 1px; height: 10px; }
+.ch-left { left: -14px; top: 50%; transform: translateY(-50%); height: 1px; width: 10px; }
+.ch-right { right: -14px; top: 50%; transform: translateY(-50%); height: 1px; width: 10px; }
+
+.lens-telemetry-readout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(
+    calc(var(--x, 50%) + var(--lens-radius, 170px) + 12px),
+    calc(var(--y, 50%) - 40px),
+    0
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: rgba(5, 5, 8, 0.82);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-left: 2px solid var(--cp-gold);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-family: var(--cp-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  backdrop-filter: blur(10px);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.telemetry-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.t-label { color: var(--cp-text-muted); }
+.t-val { color: var(--cp-gold-light); font-variant-numeric: tabular-nums; }
+
+.lens-status-badges {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(
+    calc(var(--x, 50%) - var(--lens-radius, 170px) - 100px),
+    calc(var(--y, 50%) - 20px),
+    0
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--cp-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.mode-badge {
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.badge-graded {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--cp-gold);
+  color: var(--cp-gold-light);
+}
+
+.badge-raw {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.lut-badge {
+  background: rgba(5, 5, 8, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--cp-text-secondary);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+/* Camera Viewfinder Brackets */
+.viewfinder-brackets-layer {
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.vf-bracket {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+.vf-tl { top: 0; left: 0; border-top: 2px solid; border-left: 2px solid; }
+.vf-tr { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
+.vf-bl { bottom: 0; left: 0; border-bottom: 2px solid; border-left: 2px solid; }
+.vf-br { bottom: 0; right: 0; border-bottom: 2px solid; border-right: 2px solid; }
+
+.vf-status-bar {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--cp-font-mono);
+  font-size: clamp(0.6rem, 0.8vw, 0.72rem);
+  letter-spacing: 0.2em;
+  color: var(--cp-text-muted);
+}
+
+.top-bar { top: 10px; }
+.bottom-bar { bottom: 10px; }
+
+.status-rec {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff3344;
+  font-weight: 600;
+}
+
+.rec-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ff3344;
+  box-shadow: 0 0 8px #ff3344;
+  animation: rec-blink 1.2s infinite ease-in-out;
+}
+
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* ==================================================
+   GRADE SELECTOR (LUT CHIPS)
+   ================================================== */
+.hero-grade-chips-mount {
+  margin-top: 24px;
+  position: relative;
+  z-index: 20;
+}
+
+.grade-chips-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.grade-chips-label {
+  font-family: var(--cp-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--cp-gold);
+}
+
+.grade-chips-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(14, 15, 22, 0.65);
+  padding: 4px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.grade-chip-btn {
+  background: transparent;
+  border: none;
+  color: var(--cp-text-secondary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: var(--cp-font-mono);
+  font-size: clamp(0.68rem, 0.85vw, 0.76rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.grade-chip-btn:focus-visible {
+  outline: 2px solid var(--cp-gold);
+}
+
+.grade-chip-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.grade-chip-btn.active {
+  background: var(--cp-gold);
+  color: #050505;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 1024px) {
+  .hero-centerpiece-wrapper {
+    height: clamp(340px, 46vh, 480px);
+  }
+}
+
+@media (max-width: 768px) {
+  .lens-telemetry-readout,
+  .lens-status-badges {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-centerpiece-wrapper {
+    height: 300px;
+  }
+}
