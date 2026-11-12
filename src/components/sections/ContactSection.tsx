@@ -198,7 +198,7 @@ export function ContactSection({
             LET&apos;S BUILD SOMETHING WORTH REMEMBERING.
           </h2>
           <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3]">
-            Select your protocol to calibrate direct access with Alexander Vaika and the senior engineering syndicate.
+            Select your protocol to calibrate direct access with Muramalla Vijay Kumar and the senior engineering syndicate.
           </p>
         </div>
 

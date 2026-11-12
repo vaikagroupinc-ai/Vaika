@@ -69,7 +69,7 @@ export const TeamSection: React.FC<TeamSectionProps> = () => {
               {FOUNDER_DATA.quote}
             </blockquote>
 
-            <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3] leading-relaxed">
+            <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3] leading-relaxed whitespace-pre-line">
               {FOUNDER_DATA.bio}
             </p>
 

@@ -1014,18 +1014,19 @@ export const TESTIMONIALS: TestimonialItem[] = [
 ];
 
 export const FOUNDER_DATA = {
-  name: 'ALEXANDER VAIKA',
+  name: 'MURAMALLA VIJAY KUMAR',
   protocol: 'V-CORE-001',
-  role: 'FOUNDER • HEAD OF DESIGN',
-  titles: 'ARCHITECTURAL CINEMATOGRAPHER • SYSTEMS ARCHITECT',
-  quote: '“Architecture was static until we rendered it kinetic. Code was invisible until we gave it form.”',
-  bio: 'With over twelve years straddling high-end spatial aesthetics, Unreal Engine simulation pipelines, and autonomous deep learning systems, Alexander created Vaika Group to eliminate the fracture between physical form, digital perception, and machine intelligence.',
+  role: 'FOUNDER • VAIKA GROUP',
+  titles: 'VFX & CINEMATIC ARTIST • FOUNDER',
+  quote:
+    '“We don’t just deliver media; we forge visual authority. Bringing together a decade of hands-on visual craft, VFX precision, and AI intelligence to build beyond traditional boundaries.”',
+  bio: 'Starting my journey in January 2015 as a Real Estate Image Editor, I evolved through professional editing, VFX filmmaking, independent freelancing, and AI data annotation, building over a decade of hands-on experience across creative and digital industries.\n\nIn February 2026, I founded Vaika Group, bringing together my experience in real estate, visual storytelling, VFX, and artificial intelligence to build something beyond traditional creative services.',
   image: '/Vijay.jpg',
-  imageAlt: 'Executive portrait of the VAIKA GROUP founder',
+  imageAlt: 'Executive portrait of Muramalla Vijay Kumar, Founder of VAIKA GROUP',
   credentials: [
-    'AA DIPLOMA (LONDON)',
-    'UNREAL AUTHORIZED FELLOW',
-    '14 AWARDS W/ SOTHEBYS'
+    '10+ YEARS CREATIVE EXPERIENCE',
+    'VFX & CINEMATIC ARTIST',
+    'FOUNDER • VAIKA GROUP'
   ]
 };
 
