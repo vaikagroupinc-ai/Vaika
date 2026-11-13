@@ -924,7 +924,7 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block font-['Space_Grotesk'] text-xs text-[#9ba1b3] uppercase tracking-wider mb-1.5 font-semibold">
-                  YOUR NAME / LEAD *
+                  YOUR NAME / ORGANIZATION *
                 </label>
                 <input
                   type="text"

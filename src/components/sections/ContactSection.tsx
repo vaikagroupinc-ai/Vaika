@@ -336,7 +336,7 @@ export function ContactSection({
                   htmlFor="client-name"
                   className="block font-['Space_Grotesk'] text-[11px] text-[#9ba1b3] uppercase tracking-wider mb-1.5 font-semibold"
                 >
-                  YOUR IDENTITY / ORGANIZATION *
+                  YOUR NAME / ORGANIZATION *
                 </label>
                 <input
                   id="client-name"

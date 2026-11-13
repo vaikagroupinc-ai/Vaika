@@ -49,7 +49,7 @@ function buildEmailText(payload: ContactPayload): { subject: string; text: strin
     `New Client Engagement Brief via vaikagroup.com`,
     `Recipient: ${RECIPIENT_EMAIL}`,
     ``,
-    `Identity / Lead: ${payload.name}`,
+    `Name / Organization: ${payload.name}`,
     payload.company ? `Company / Organization: ${payload.company}` : null,
     `Email: ${payload.email}`,
     payload.phone ? `Phone / WhatsApp: ${payload.phone}` : null,
