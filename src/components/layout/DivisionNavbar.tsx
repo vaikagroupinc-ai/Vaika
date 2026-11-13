@@ -20,9 +20,30 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock background scroll when mobile menu is open & listen for Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   // Normalize division key for aliases
   const normalizedDivision: 'estate' | 'agent' | 'data-ai' | 'digital-marketing' =
@@ -193,7 +214,7 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
             <button
               onClick={() => scrollTo('#contact')}
               style={{ borderColor: `${config.color}50` }}
-              className="relative inline-flex items-center justify-center px-3 py-2 rounded bg-[#161720] text-[#f5f6fa] font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap hover:bg-[#20222d] transition-all border shadow-[0_0_20px_-4px_rgba(0,0,0,0.5)] group cursor-pointer"
+              className="relative hidden sm:inline-flex items-center justify-center px-3 py-2 rounded bg-[#161720] text-[#f5f6fa] font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap hover:bg-[#20222d] transition-all border shadow-[0_0_20px_-4px_rgba(0,0,0,0.5)] group cursor-pointer"
             >
               <span className="flex items-center gap-2">
                 <span
@@ -206,8 +227,10 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Menu"
-              className="lg:hidden w-9 h-9 rounded bg-[#161720] border border-white/10 flex items-center justify-center text-[#f5f6fa] hover:text-white transition-colors"
+              aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="division-mobile-nav-menu"
+              className="lg:hidden w-9 h-9 rounded bg-[#161720] border border-white/10 flex items-center justify-center text-[#f5f6fa] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#d4af37]"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -217,7 +240,13 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-30 bg-[#050507]/98 backdrop-blur-2xl flex flex-col justify-between pt-24 pb-8 px-6 border-b border-white/10 lg:hidden animate-in fade-in duration-200">
+        <div
+          id="division-mobile-nav-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Division Navigation Menu"
+          className="fixed inset-0 z-30 bg-[#050507]/98 backdrop-blur-2xl flex flex-col justify-between pt-24 pb-8 px-6 border-b border-white/10 lg:hidden overflow-y-auto max-h-[100dvh] animate-in fade-in duration-200"
+        >
           <div className="flex flex-col gap-4">
             <Link
               href="/"
@@ -236,7 +265,7 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
                 <button
                   key={link.label}
                   onClick={() => scrollTo(link.href)}
-                  className="px-4 py-2.5 rounded bg-[#12131a] font-['Space_Grotesk'] text-sm uppercase text-[#f5f6fa] hover:bg-[#1e1f26] transition-colors flex items-center justify-between border border-white/5"
+                  className="px-4 py-2.5 rounded bg-[#12131a] font-['Space_Grotesk'] text-sm uppercase text-[#f5f6fa] hover:bg-[#1e1f26] transition-colors flex items-center justify-between border border-white/5 active:scale-[0.99]"
                 >
                   <span>
                     0{idx + 1} {'//'} {link.label}
@@ -271,11 +300,11 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
             </div>
           </div>
 
-          <div className="pt-4 border-t border-white/10">
+          <div className="pt-6 mt-4 border-t border-white/10">
             <button
               onClick={() => scrollTo('#contact')}
               style={{ backgroundColor: config.color }}
-              className="w-full py-3.5 rounded text-[#050507] font-['Space_Grotesk'] text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl"
+              className="w-full py-3.5 rounded text-[#050507] font-['Space_Grotesk'] text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl hover:brightness-110 transition-all cursor-pointer"
             >
               <span>{config.ctaText}</span>
               <Sparkles className="w-4 h-4" />

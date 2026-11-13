@@ -53,7 +53,7 @@ export function RootDocumentShell({
         ) : null}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){if(typeof console!=='undefined'&&console.warn){const w=console.warn;console.warn=function(...a){if(a[0]&&typeof a[0]==='string'&&a[0].indexOf('Clock: This module has been deprecated')!==-1)return;w.apply(console,a);};}})();`,
+            __html: `(function(){if(typeof console!=='undefined'&&console.warn){const w=console.warn;console.warn=function(...a){if(a[0]&&typeof a[0]==='string'&&a[0].indexOf('Clock: This module has been deprecated')!==-1)return;w.apply(console,a);};}})();try{if(window.sessionStorage&&sessionStorage.getItem('vaika_intro_seen')==='true'||window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro-skip');}}catch(e){}`,
           }}
         />
       </head>

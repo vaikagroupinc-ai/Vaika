@@ -194,7 +194,7 @@ export function ContactSection({
             <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]" />
             DIRECT INITIATION PROTOCOL
           </div>
-          <h2 className="font-['Space_Grotesk'] text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#f5f6fa]">
+          <h2 className="font-['Space_Grotesk'] text-[clamp(1.65rem,6vw,3rem)] font-bold uppercase tracking-tight text-[#f5f6fa] leading-tight">
             LET&apos;S BUILD SOMETHING WORTH REMEMBERING.
           </h2>
           <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3]">

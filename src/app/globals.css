@@ -155,9 +155,10 @@ body {
   visibility: hidden;
 }
 
-#website-root.revealed {
-  opacity: 1;
-  visibility: visible;
+#website-root.revealed,
+html.intro-skip #website-root {
+  opacity: 1 !important;
+  visibility: visible !important;
   transition: opacity 0.5s ease;
 }
 
@@ -166,8 +167,14 @@ body {
   transform: translateY(-8px);
 }
 
-#site-nav.visible {
-  opacity: 1;
-  transform: translateY(0);
+#site-nav.visible,
+html.intro-skip #site-nav {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+
+html.intro-skip #vaika-intro-root {
+  display: none !important;
+  pointer-events: none !important;
 }

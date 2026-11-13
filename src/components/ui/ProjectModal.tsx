@@ -147,11 +147,11 @@ export function ProjectModal({ project, onClose, onSelectProject }: ProjectModal
 
         {/* Project Key Metrics */}
         {project.metrics && (
-          <div className="grid grid-cols-3 gap-4 p-4 rounded bg-[#12131a] border border-white/5 font-mono text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 p-4 rounded bg-[#12131a] border border-white/5 font-mono text-center">
             {project.metrics.map((m, idx) => (
-              <div key={idx}>
+              <div key={idx} className="p-2 sm:p-0 border-b sm:border-b-0 border-white/5 last:border-b-0">
                 <span className="text-[11px] text-[#9ba1b3] uppercase block">{m.label}</span>
-                <span className="text-base font-bold text-[#f5f6fa]">{m.value}</span>
+                <span className="text-sm sm:text-base font-bold text-[#f5f6fa]">{m.value}</span>
               </div>
             ))}
           </div>

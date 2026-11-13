@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, Suspense } from 'react';
+import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -8,11 +8,11 @@ import { Eye, Layers, Sparkles, Activity } from 'lucide-react';
 
 type ShadingMode = 'wireframe' | 'clay' | 'rtx';
 
-function ModelArchitecture({ mode }: { mode: ShadingMode }) {
+function ModelArchitecture({ mode, isVisible }: { mode: ShadingMode; isVisible: boolean }) {
   const meshRef = useRef<THREE.Group>(null);
 
   useFrame((_, delta) => {
-    if (meshRef.current) {
+    if (isVisible && meshRef.current) {
       meshRef.current.rotation.y += delta * 0.18;
     }
   });
@@ -299,9 +299,42 @@ function ModelArchitecture({ mode }: { mode: ShadingMode }) {
 export function Interactive3DViewer() {
   const [mode, setMode] = useState<ShadingMode>('rtx');
   const [fps] = useState('60.0');
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: '100px' }
+    );
+
+    const currentEl = containerRef.current;
+    if (currentEl) {
+      observer.observe(currentEl);
+    }
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      if (currentEl) {
+        observer.unobserve(currentEl);
+      }
+    };
+  }, []);
 
   return (
-    <div className="relative w-full rounded-lg overflow-hidden border border-white/10 bg-[#0a0a0f] shadow-2xl">
+    <div
+      ref={containerRef}
+      className="relative w-full rounded-lg overflow-hidden border border-white/10 bg-[#0a0a0f] shadow-2xl"
+    >
       {/* Top HUD Bar */}
       <div className="flex flex-wrap items-center justify-between px-4 py-3 bg-[#12131a]/90 backdrop-blur border-b border-white/5 z-20 relative">
         <div className="flex items-center gap-3">
@@ -359,8 +392,8 @@ export function Interactive3DViewer() {
       <div className="relative h-[420px] lg:h-[500px] w-full bg-[#050507]">
         <Canvas
           camera={{ position: [4, 3, 5], fov: 42 }}
-          dpr={[1, 2]}
-          gl={{ antialias: true, alpha: false }}
+          dpr={isMobile ? [1, 1.25] : [1, 1.75]}
+          gl={{ antialias: !isMobile, alpha: false, powerPreference: 'high-performance' }}
           className="w-full h-full cursor-grab active:cursor-grabbing"
         >
           <color attach="background" args={[mode === 'clay' ? '#181922' : mode === 'rtx' ? '#08090f' : '#050507']} />
@@ -368,13 +401,17 @@ export function Interactive3DViewer() {
           <directionalLight position={[6, 9, 5]} intensity={mode === 'clay' ? 1.6 : 2.4} color="#fffcf2" />
           <directionalLight position={[-6, 5, -5]} intensity={mode === 'rtx' ? 1.2 : 0.6} color="#94a3b8" />
           
-          {/* Architectural Interior & Landscape Point Lights */}
+          {/* Architectural Interior & Landscape Point Lights (Adaptive for mobile) */}
           <pointLight position={[-0.4, 0.1, 0.3]} intensity={mode === 'rtx' ? 3.5 : 0} distance={7} color="#ffbe55" />
-          <pointLight position={[1.3, -0.3, 1.0]} intensity={mode === 'rtx' ? 2.8 : 0} distance={6} color="#00e5ff" />
-          <pointLight position={[0.6, 1.2, 1.8]} intensity={mode === 'rtx' ? 2.0 : 0} distance={5} color="#ffd88a" />
+          {!isMobile && (
+            <>
+              <pointLight position={[1.3, -0.3, 1.0]} intensity={mode === 'rtx' ? 2.8 : 0} distance={6} color="#00e5ff" />
+              <pointLight position={[0.6, 1.2, 1.8]} intensity={mode === 'rtx' ? 2.0 : 0} distance={5} color="#ffd88a" />
+            </>
+          )}
 
           <Suspense fallback={null}>
-            <ModelArchitecture mode={mode} />
+            <ModelArchitecture mode={mode} isVisible={isVisible} />
             <OrbitControls
               enableZoom={false}
               autoRotate={false}

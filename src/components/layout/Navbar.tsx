@@ -20,9 +20,30 @@ export function Navbar({ activeSection }: NavbarProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock background scroll when mobile menu is open & listen for Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { label: 'HOME', href: '#hero', id: 'hero' },
@@ -140,7 +161,7 @@ export function Navbar({ activeSection }: NavbarProps) {
 
             <button
               onClick={() => scrollTo('#contact')}
-              className="relative inline-flex items-center justify-center px-3 py-2 rounded bg-[#161720] text-[#f5f6fa] font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap hover:bg-[#20222d] transition-all border border-white/10 hover:border-[#d4af37]/50 shadow-[0_0_20px_-4px_rgba(212,175,55,0.2)] group cursor-pointer"
+              className="relative hidden sm:inline-flex items-center justify-center px-3 py-2 rounded bg-[#161720] text-[#f5f6fa] font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap hover:bg-[#20222d] transition-all border border-white/10 hover:border-[#d4af37]/50 shadow-[0_0_20px_-4px_rgba(212,175,55,0.2)] group cursor-pointer"
             >
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37] animate-pulse" />
@@ -150,8 +171,10 @@ export function Navbar({ activeSection }: NavbarProps) {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Menu"
-              className="lg:hidden w-9 h-9 rounded bg-[#161720] border border-white/10 flex items-center justify-center text-[#f5f6fa] hover:text-[#d4af37] transition-colors"
+              aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav-menu"
+              className="lg:hidden w-9 h-9 rounded bg-[#161720] border border-white/10 flex items-center justify-center text-[#f5f6fa] hover:text-[#d4af37] transition-colors focus-visible:outline-2 focus-visible:outline-[#d4af37]"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -161,17 +184,27 @@ export function Navbar({ activeSection }: NavbarProps) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-30 bg-[#050507]/98 backdrop-blur-2xl flex flex-col justify-between pt-24 pb-8 px-6 border-b border-white/10 lg:hidden animate-in fade-in duration-200">
-          <div className="flex flex-col gap-4">
-            <div className="font-['Space_Grotesk'] text-[11px] text-[#d4af37] uppercase tracking-widest">
-              {'//'} PRIMARY PROTOCOLS
+        <div
+          id="mobile-nav-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site Navigation Menu"
+          className="fixed inset-0 z-30 bg-[#050507]/98 backdrop-blur-2xl flex flex-col justify-between pt-24 pb-8 px-6 border-b border-white/10 lg:hidden overflow-y-auto max-h-[100dvh] animate-in fade-in duration-200"
+        >
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <span className="font-['Space_Grotesk'] text-[11px] text-[#d4af37] uppercase tracking-widest font-semibold">
+                {'//'} PRIMARY PROTOCOLS
+              </span>
+              <span className="font-mono text-[10px] text-[#9ba1b3]">PRESS ESC TO CLOSE</span>
             </div>
+
             <nav className="flex flex-col space-y-2">
               {navLinks.map((link, idx) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.href)}
-                  className="px-4 py-3 rounded bg-[#12131a] font-['Space_Grotesk'] text-base uppercase text-[#f5f6fa] hover:bg-[#1e1f26] transition-colors flex items-center justify-between border border-white/5"
+                  className="px-4 py-3 rounded bg-[#12131a] font-['Space_Grotesk'] text-base uppercase text-[#f5f6fa] hover:bg-[#1e1f26] transition-colors flex items-center justify-between border border-white/5 active:scale-[0.99]"
                 >
                   <span>
                     0{idx} {'//'} {link.label}
@@ -188,38 +221,38 @@ export function Navbar({ activeSection }: NavbarProps) {
               <Link
                 href="/services/real-estate"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#d4af37] border border-[#d4af37]/30 hover:bg-[#1e1f26]"
+                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#d4af37] border border-[#d4af37]/30 hover:bg-[#1e1f26] transition-colors"
               >
                 REAL ESTATE
               </Link>
               <Link
                 href="/services/agent-services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#e1e2e6] border border-[#e1e2e6]/30 hover:bg-[#1e1f26]"
+                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#e1e2e6] border border-[#e1e2e6]/30 hover:bg-[#1e1f26] transition-colors"
               >
                 AGENT SERVICES
               </Link>
               <Link
                 href="/services/data-ai"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#8b5cf6] border border-[#8b5cf6]/30 hover:bg-[#1e1f26]"
+                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#8b5cf6] border border-[#8b5cf6]/30 hover:bg-[#1e1f26] transition-colors"
               >
                 DATA & AI CORE
               </Link>
               <Link
                 href="/services/digital-marketing"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#00f0ff] border border-[#00f0ff]/30 hover:bg-[#1e1f26]"
+                className="p-3 rounded bg-[#12131a] text-center font-mono text-xs text-[#00f0ff] border border-[#00f0ff]/30 hover:bg-[#1e1f26] transition-colors"
               >
                 DIGITAL MARKETING
               </Link>
             </div>
           </div>
 
-          <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
+          <div className="pt-6 mt-6 border-t border-white/10 flex flex-col gap-3">
             <button
               onClick={() => scrollTo('#contact')}
-              className="w-full py-3.5 rounded bg-[#d4af37] text-[#050507] font-['Space_Grotesk'] text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(212,175,55,0.3)]"
+              className="w-full py-3.5 rounded bg-[#d4af37] text-[#050507] font-['Space_Grotesk'] text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(212,175,55,0.3)] hover:brightness-110 transition-all cursor-pointer"
             >
               <span>COMMISSION BRIEF</span>
               <Sparkles className="w-4 h-4" />

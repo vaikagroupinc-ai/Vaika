@@ -15,7 +15,25 @@ import { ProjectModal } from '@/components/ui/ProjectModal';
 import { TeamModal } from '@/components/ui/TeamModal';
 import { VaikaIntroWrapper } from '@/components/intro/VaikaIntroWrapper';
 import { DivisionKey, ProjectItem, TeamMember } from '@/types';
-import { Interactive3DViewer } from '@/components/three/Interactive3DViewer';
+import dynamic from 'next/dynamic';
+
+const Interactive3DViewer = dynamic(
+  () => import('@/components/three/Interactive3DViewer').then((mod) => mod.Interactive3DViewer),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="relative w-full h-[420px] lg:h-[500px] rounded-lg border border-white/10 bg-[#0a0a0f] flex flex-col items-center justify-center p-6 text-center">
+        <div className="w-10 h-10 rounded-full border-2 border-[#00f0ff]/20 border-t-[#00f0ff] animate-spin mb-4" />
+        <span className="font-mono text-xs text-[#00f0ff] tracking-widest uppercase">
+          INITIALIZING SPATIAL VIEWPORT
+        </span>
+        <span className="font-mono text-[11px] text-[#9ba1b3] mt-2">
+          Loading WebGL shaders and real-time mesh pipeline...
+        </span>
+      </div>
+    ),
+  }
+);
 
 export default function Home() {
   const [selectedDivision, setSelectedDivision] = useState<DivisionKey | null>(null);

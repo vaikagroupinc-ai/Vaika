@@ -91,9 +91,18 @@ export class VaikaIntro {
     this.rootContainer.addEventListener('click', () => {
       this.transitionToWebsite();
     }, { once: true });
+
+    // Safety timeout to ensure user is never blocked if network stalls video
+    this.safetyTimeout = setTimeout(() => {
+      this.transitionToWebsite();
+    }, 5500);
   }
 
   transitionToWebsite() {
+    if (this.safetyTimeout) {
+      clearTimeout(this.safetyTimeout);
+      this.safetyTimeout = null;
+    }
     if (this.isTransitioned) return;
     this.isTransitioned = true;
 
@@ -147,6 +156,10 @@ export class VaikaIntro {
   }
 
   dispose() {
+    if (this.safetyTimeout) {
+      clearTimeout(this.safetyTimeout);
+      this.safetyTimeout = null;
+    }
     if (this.videoComponent) this.videoComponent.dispose();
     if (this.finalLockup) this.finalLockup.kill();
   }

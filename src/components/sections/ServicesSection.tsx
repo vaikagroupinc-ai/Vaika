@@ -92,7 +92,7 @@ export function ServicesSection({}: ServicesSectionProps = {}) {
                 {/* Preview Box */}
                 <div className="w-full h-40 rounded bg-[#050507] mt-4 relative overflow-hidden flex items-center justify-center border border-white/5 group/preview">
                   <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO84LPO5WoDq4JSeMbIFp6_OHWxXZId97XpUJkHMAAF0wBmkNYPje5qciUpxJZ7REMBX0lfWpWPOPSnZsEy2N1WPonF2MtbyiGiht7tq6y2sYt8UXPGdjMtzQ6BlvzkItVvZuTrWcncxg7grivRYnkpZ4ecMSjyPugbPbg2WDOJGGFJijKm1JMPh2BYlx0D_ROZoqZIxPD8kudUCeq1WO2gp3WJW82hav1-rIiN8-p9sccuG0afN5G"
+                    src="/assets/divisions/real-estate-division.jpg"
                     alt="Dark luxury penthouse architectural interior"
                     fill
                     sizes="(max-width: 1024px) 100vw, 25vw"
@@ -159,7 +159,7 @@ export function ServicesSection({}: ServicesSectionProps = {}) {
                 {/* Visual Preview Box */}
                 <div className="w-full h-40 rounded bg-[#050507] mt-4 relative overflow-hidden flex flex-col justify-between p-3 border border-white/5 group/preview">
                   <Image
-                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/divisions/agent-services-division.jpg"
                     alt="Agent operational CRM pipeline"
                     fill
                     sizes="(max-width: 1024px) 100vw, 25vw"
@@ -289,7 +289,7 @@ export function ServicesSection({}: ServicesSectionProps = {}) {
                 {/* Preview Box */}
                 <div className="w-full h-40 rounded bg-[#050507] mt-4 relative overflow-hidden flex items-center justify-center border border-white/5 group/preview">
                   <Image
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/divisions/digital-marketing-division.jpg"
                     alt="Digital marketing growth analytics"
                     fill
                     sizes="(max-width: 1024px) 100vw, 25vw"

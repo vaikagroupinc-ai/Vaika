@@ -267,7 +267,7 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
               VAIKA GROUP {"—"} INDEPENDENT THINKING. INTEGRATED EXECUTION.
             </p>
 
-            <h1 className="font-['Space_Grotesk'] text-[2.45rem] sm:text-6xl lg:text-[4.5rem] font-bold uppercase tracking-[-0.025em] text-[#f5f6fa] leading-[0.98]">
+            <h1 className="font-['Space_Grotesk'] text-[clamp(1.85rem,7vw,4.5rem)] font-bold uppercase tracking-[-0.025em] text-[#f5f6fa] leading-[0.98]">
               A VISION.
               <br />
               <span className="font-normal text-[#e6d5a7]">WITHOUT LIMITS.</span>

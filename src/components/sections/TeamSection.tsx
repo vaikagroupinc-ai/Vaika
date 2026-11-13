@@ -23,7 +23,7 @@ export const TeamSection: React.FC<TeamSectionProps> = () => {
             <span className="font-['Space_Grotesk'] text-xs text-[#d4af37] tracking-widest uppercase font-bold">
               {"//"} PERSONNEL • COGNITION
             </span>
-            <h2 className="font-['Space_Grotesk'] text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#f5f6fa] mt-1">
+            <h2 className="font-['Space_Grotesk'] text-[clamp(1.65rem,6vw,3rem)] font-bold uppercase tracking-tight text-[#f5f6fa] mt-1 leading-tight">
               THE PEOPLE BEHIND THE WORK.
             </h2>
           </div>

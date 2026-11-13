@@ -28,7 +28,7 @@ export function ValidationSection() {
               <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
               {'//'} SOFTWARE & CREATIVE TECHNOLOGY PIPELINE
             </span>
-            <h2 className="font-['Space_Grotesk'] text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#f5f6fa] mt-1">
+            <h2 className="font-['Space_Grotesk'] text-[clamp(1.5rem,5.5vw,3rem)] font-bold uppercase tracking-tight text-[#f5f6fa] mt-1 leading-tight break-words">
               ENGINEERED WITH ELITE TECH.<br />
               <span className="text-[#d4af37]">CRAFTED FOR VISUAL SUPREMACY.</span>
             </h2>
