@@ -1052,7 +1052,7 @@ export const TEAM_GROUP_DATA = {
   title: 'ONE INTEGRATED TEAM',
   description:
     'Architects, visual artists, AI data specialists, and digital strategists working as a unified execution team across all four VAIKA GROUP divisions.',
-  image: '',
+  image: '/vaiks_team.jpeg',
   imageAlt: 'VAIKA GROUP multidisciplinary studio team portrait',
   divisions: [
     'Real Estate Media & Visualization',

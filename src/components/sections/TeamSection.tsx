@@ -91,21 +91,27 @@ export const TeamSection: React.FC<TeamSectionProps> = () => {
         </div>
 
         {/* Collective Team Group Showcase */}
-        <div className="bg-[#0f1017] rounded-lg border border-white/10 overflow-hidden shadow-2xl">
-          <div className="relative w-full aspect-[16/7] min-h-[260px] bg-[#0b0c12] flex items-center justify-center overflow-hidden">
+        <div className="bg-[#0f1017] rounded-lg border border-white/10 overflow-hidden shadow-2xl group">
+          <div className="relative w-full aspect-[16/8] min-h-[300px] sm:min-h-[360px] bg-[#0b0c12] flex items-center justify-center overflow-hidden">
             {TEAM_GROUP_DATA.image ? (
               <>
                 <Image
                   src={TEAM_GROUP_DATA.image}
                   alt={TEAM_GROUP_DATA.imageAlt}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1280px) 100vw, 1280px"
                 />
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050507]/85 via-[#050507]/20 to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050507]/90 via-[#050507]/20 to-transparent"
                 />
+                <div className="absolute top-4 left-4 bg-[#050507]/85 backdrop-blur-md px-3 py-1.5 rounded border border-white/10 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#d4af37]" />
+                  <span className="font-mono text-xs text-[#f5f6fa] uppercase tracking-wider">
+                    {TEAM_GROUP_DATA.eyebrow}
+                  </span>
+                </div>
               </>
             ) : (
               <div className="px-6 py-12 text-center max-w-2xl mx-auto space-y-4">
