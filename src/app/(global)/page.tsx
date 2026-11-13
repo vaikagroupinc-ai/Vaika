@@ -43,7 +43,7 @@ export default function Home() {
 
   // Active section intersection observer
   useEffect(() => {
-    const sections = ['hero', 'services', 'portfolio', 'team', 'contact'];
+    const sections = ['hero', 'services', 'portfolio', 'founder-studio', 'team', 'contact'];
     const handleScroll = () => {
       const scrollPos = window.scrollY + 250;
       for (const sectionId of sections) {

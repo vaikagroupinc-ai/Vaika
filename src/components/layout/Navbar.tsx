@@ -49,6 +49,7 @@ export function Navbar({ activeSection }: NavbarProps) {
     { label: 'HOME', href: '#hero', id: 'hero' },
     { label: 'SERVICES', href: '#services', id: 'services' },
     { label: 'WORK', href: '#portfolio', id: 'portfolio' },
+    { label: 'STUDIO', href: '#founder-studio', id: 'founder-studio' },
     { label: 'TEAM', href: '#team', id: 'team' },
     { label: 'CONTACT', href: '#contact', id: 'contact' },
   ];
@@ -65,10 +66,10 @@ export function Navbar({ activeSection }: NavbarProps) {
     <>
       <header
         id="site-nav"
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-auto ${
           scrolled
-            ? 'bg-[#050507]/90 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_1px_12px_rgba(0,0,0,0.5)]'
-            : 'bg-[#050507]/60 backdrop-blur-md py-4'
+            ? 'bg-[#050507]/75 backdrop-blur-xl border-b border-white/10 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.5)]'
+            : 'bg-[#050507]/40 backdrop-blur-md py-4'
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-3">

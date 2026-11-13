@@ -163,15 +163,8 @@ html.intro-skip #website-root {
 }
 
 #site-nav {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-#site-nav.visible,
-html.intro-skip #site-nav {
   opacity: 1 !important;
   transform: translateY(0) !important;
-  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
 }
 
 html.intro-skip #vaika-intro-root {

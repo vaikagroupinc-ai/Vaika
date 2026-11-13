@@ -1042,8 +1042,7 @@ export const FOUNDER_DATA = {
   credentials: [
     '10+ YEARS CREATIVE EXPERIENCE',
     'REAL ESTATE VISUAL EXPERT',
-    'VFX & CINEMATIC ARTIST',
-    'FOUNDER • VAIKA GROUP'
+    'VFX & CINEMATIC ARTIST'
   ]
 };
 

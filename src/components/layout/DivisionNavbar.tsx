@@ -132,7 +132,7 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? 'bg-[#050507]/92 backdrop-blur-xl border-b border-white/10 py-3 shadow-[0_1px_16px_rgba(0,0,0,0.6)]'
             : 'bg-[#050507]/60 backdrop-blur-md py-4'
