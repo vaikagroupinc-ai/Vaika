@@ -49,7 +49,6 @@ export function Navbar({ activeSection }: NavbarProps) {
     { label: 'HOME', href: '#hero', id: 'hero' },
     { label: 'SERVICES', href: '#services', id: 'services' },
     { label: 'WORK', href: '#portfolio', id: 'portfolio' },
-    { label: 'STUDIO', href: '#founder-studio', id: 'founder-studio' },
     { label: 'TEAM', href: '#team', id: 'team' },
     { label: 'CONTACT', href: '#contact', id: 'contact' },
   ];

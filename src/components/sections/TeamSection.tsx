@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Users } from 'lucide-react';
-import { FOUNDER_DATA, TEAM_GROUP_DATA } from '@/data/content';
+import { TEAM_GROUP_DATA } from '@/data/content';
 import { TeamMember } from '@/types';
 
 interface TeamSectionProps {
@@ -30,64 +30,6 @@ export const TeamSection: React.FC<TeamSectionProps> = () => {
           <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3] max-w-md leading-relaxed">
             A sovereign assembly of architectural visionaries, real-time computational artists, and AI systems researchers.
           </p>
-        </div>
-
-        {/* Founder Flagship Split Card */}
-        <div
-          id="founder-studio"
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#0f1017] rounded-lg p-6 sm:p-10 relative overflow-hidden items-center border border-white/10 shadow-2xl"
-        >
-          <div className="lg:col-span-5 relative group overflow-hidden rounded-lg aspect-[4/5] bg-[#161720]">
-            <Image
-              src={FOUNDER_DATA.image}
-              alt={FOUNDER_DATA.imageAlt}
-              fill
-              className="object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700"
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
-            <div className="absolute bottom-3 left-3 bg-[#050507]/85 px-3 py-1.5 rounded backdrop-blur font-mono text-xs text-[#d4af37] flex items-center gap-2 border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-[#d4af37]" />
-              {FOUNDER_DATA.role}
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-4">
-            <div className="flex items-center gap-2 font-mono text-xs text-[#9ba1b3]">
-              <span>DIRECTOR PROTOCOL</span>
-              <span className="text-[#d4af37]">•</span>
-              <span className="text-[#f5f6fa]">{FOUNDER_DATA.protocol}</span>
-            </div>
-
-            <h3 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold uppercase text-[#f5f6fa] tracking-tight">
-              {FOUNDER_DATA.name}
-            </h3>
-            <p className="font-['Space_Grotesk'] text-xs text-[#9ba1b3] tracking-widest uppercase font-semibold">
-              {FOUNDER_DATA.titles}
-            </p>
-
-            <blockquote className="font-['Space_Grotesk'] text-lg sm:text-xl text-[#f5f6fa] leading-snug border-l-2 border-[#d4af37] pl-4 my-2 italic">
-              {FOUNDER_DATA.quote}
-            </blockquote>
-
-            <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3] leading-relaxed whitespace-pre-line">
-              {FOUNDER_DATA.bio}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-2 pt-2 font-mono text-xs">
-              {FOUNDER_DATA.credentials.map((cred, idx) => (
-                <span
-                  key={idx}
-                  className={`px-3 py-1 rounded bg-[#161720] border border-white/5 ${
-                    idx === FOUNDER_DATA.credentials.length - 1
-                      ? 'text-[#d4af37] border-[#d4af37]/30'
-                      : 'text-[#f5f6fa]'
-                  }`}
-                >
-                  {cred}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Collective Team Group Showcase */}
