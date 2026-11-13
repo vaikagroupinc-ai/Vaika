@@ -4,8 +4,10 @@ import {
   buildAbsoluteEditionUrl,
   buildHreflangAlternates,
 } from '@/lib/international/route-registry';
+import { VAIKA_FAVICONS } from '@/lib/international/seo-metadata';
 
 export const metadata: Metadata = {
+  icons: VAIKA_FAVICONS,
   title: 'Data & AI Core — AI Data Annotation, Preparation & Back-Office Ops — VAIKA GROUP',
   description:
     'Human-powered AI data services and back-office operations: image & video annotation, NLP text labeling, audio transcription, GIS mapping, AI model evaluation, OCR document digitization, Shopify catalog management, and CRM lead research.',

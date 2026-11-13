@@ -4,8 +4,10 @@ import {
   buildAbsoluteEditionUrl,
   buildHreflangAlternates,
 } from '@/lib/international/route-registry';
+import { VAIKA_FAVICONS } from '@/lib/international/seo-metadata';
 
 export const metadata: Metadata = {
+  icons: VAIKA_FAVICONS,
   title: 'Real Estate Media & Visualization — VAIKA GROUP',
   description:
     'Premium architectural cinematography, HDR flambient photo editing, virtual staging, 3D exterior/interior renders, and property marketing systems.',

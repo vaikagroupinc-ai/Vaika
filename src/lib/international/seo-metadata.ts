@@ -40,6 +40,19 @@ function getVerificationMetadata(): Metadata['verification'] | undefined {
   return google ? { google } : undefined;
 }
 
+export const VAIKA_FAVICONS: Metadata['icons'] = {
+  icon: [
+    { url: '/favicon.ico', sizes: 'any' },
+    { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icon-16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+  ],
+  apple: [
+    { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/favicon.ico',
+};
+
 export function buildRootGlobalMetadata(): Metadata {
   const siteUrl = getSiteUrl();
   const canonicalUrl = buildAbsoluteEditionUrl('global', 'home', siteUrl);
@@ -94,17 +107,7 @@ export function buildRootGlobalMetadata(): Metadata {
         'High-concept architectural cinematography, AAA real-time 3D, and autonomous neural pipelines.',
       creator: '@VaikaGroup',
     },
-    icons: {
-      icon: [
-        { url: '/favicon.ico' },
-        { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
-        { url: '/icon.png', sizes: '512x512', type: 'image/png' },
-      ],
-      apple: [
-        { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-      ],
-      shortcut: '/favicon.ico',
-    },
+    icons: VAIKA_FAVICONS,
   };
 }
 
@@ -141,6 +144,7 @@ export function buildGlobalDivisionMetadata(
       description,
       creator: '@VaikaGroup',
     },
+    icons: VAIKA_FAVICONS,
   };
 }
 
@@ -203,17 +207,7 @@ export function buildRegionalMetadata(
       description,
       creator: '@VaikaGroup',
     },
-    icons: {
-      icon: [
-        { url: '/favicon.ico' },
-        { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
-        { url: '/icon.png', sizes: '512x512', type: 'image/png' },
-      ],
-      apple: [
-        { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-      ],
-      shortcut: '/favicon.ico',
-    },
+    icons: VAIKA_FAVICONS,
   };
 }
 

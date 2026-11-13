@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { DIGITAL_MARKETING_DIVISION } from '@/data/servicesData';
 import { DigitalMarketingServiceDetailView } from '@/components/services/DigitalMarketingServiceDetailView';
+import { VAIKA_FAVICONS } from '@/lib/international/seo-metadata';
 
 const ALL_DIGITAL_MARKETING_SERVICES = DIGITAL_MARKETING_DIVISION.categories.flatMap(
   (c) => c.services
@@ -46,6 +47,7 @@ export async function generateMetadata({
     title,
     description,
     keywords,
+    icons: VAIKA_FAVICONS,
     alternates: {
       canonical: canonicalUrl,
     },

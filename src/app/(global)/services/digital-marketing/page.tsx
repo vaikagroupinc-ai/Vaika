@@ -4,8 +4,10 @@ import {
   buildAbsoluteEditionUrl,
   buildHreflangAlternates,
 } from '@/lib/international/route-registry';
+import { VAIKA_FAVICONS } from '@/lib/international/seo-metadata';
 
 export const metadata: Metadata = {
+  icons: VAIKA_FAVICONS,
   title: 'Digital Marketing & Creative — Strategy, Web & Video — VAIKA GROUP',
   description:
     'Integrated digital growth division featuring 15 consolidated services across social media strategy, Meta advertising, technical and local SEO, email automation, brand identity, Figma UI/UX, Next.js development, and video editing.',
