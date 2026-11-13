@@ -28,6 +28,10 @@ export function RootDocumentShell({
       className={`${spaceGrotesk.variable} ${manrope.variable} ${jetbrainsMono.variable} ${outfit.variable} dark`}
     >
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
         {structuredData ? (
           <script
             type="application/ld+json"
