@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { PARTNERS_TICKER, TESTIMONIALS } from '@/data/content';
+import { CREATIVE_TECH_STACK, TESTIMONIALS } from '@/data/content';
 import { WaveformVisualizer } from '@/components/ui/WaveformVisualizer';
 
 export function ValidationSection() {
@@ -22,49 +22,66 @@ export function ValidationSection() {
     <section className="w-full py-20 bg-[#12131a] relative overflow-hidden border-t border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="font-['Space_Grotesk'] text-xs text-[#9ba1b3] tracking-widest uppercase font-bold">
-              {'//'} VALIDATION
+            <span className="font-['Space_Grotesk'] text-xs text-[#d4af37] tracking-widest uppercase font-bold flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
+              {'//'} SOFTWARE & CREATIVE TECHNOLOGY PIPELINE
             </span>
             <h2 className="font-['Space_Grotesk'] text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#f5f6fa] mt-1">
-              TRUSTED TO CREATE.<br />
-              <span className="text-[#d4af37]">BUILT TO DELIVER.</span>
+              ENGINEERED WITH ELITE TECH.<br />
+              <span className="text-[#d4af37]">CRAFTED FOR VISUAL SUPREMACY.</span>
             </h2>
           </div>
           <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3] max-w-sm">
-            Collaborating with real estate professionals, visionary developers, and enterprise partners across global markets.
+            Harnessing industry-grade creative suites, GPU-accelerated 3D simulation engines, and full-stack web architectures.
           </p>
         </div>
 
-        {/* Infinite Logo Ticker */}
-        <div className="w-full overflow-hidden py-4 relative mb-12 border-y border-white/5 bg-[#0a0a0f]">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0a0a0f] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0a0a0f] to-transparent z-10 pointer-events-none" />
+        {/* Infinite Creative Software & Tech Ticker */}
+        <div className="w-full overflow-hidden py-5 relative mb-12 border-y border-white/10 bg-[#07080c]">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#07080c] via-[#07080c]/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#07080c] via-[#07080c]/80 to-transparent z-10 pointer-events-none" />
 
-          <div className="animate-marquee">
-            <div className="flex items-center gap-10 font-['Space_Grotesk'] text-sm sm:text-base tracking-widest text-[#9ba1b3]/40 uppercase shrink-0">
-              {PARTNERS_TICKER.map((partner, idx) => (
-                <React.Fragment key={idx}>
-                  <span className="hover:text-white transition-colors cursor-default whitespace-nowrap">
-                    {partner}
+          <div className="animate-marquee flex items-center">
+            <div className="flex items-center gap-4 shrink-0 pr-4">
+              {CREATIVE_TECH_STACK.map((tech, idx) => (
+                <div
+                  key={idx}
+                  className="group flex items-center gap-3 px-4 py-2 rounded-full bg-[#12131a] hover:bg-[#181924] border border-white/10 hover:border-white/30 transition-all duration-300 shadow-md cursor-default"
+                >
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: tech.color, boxShadow: `0 0 8px ${tech.color}` }}
+                  />
+                  <span className="font-['Space_Grotesk'] text-xs sm:text-sm font-bold text-[#f5f6fa] group-hover:text-white uppercase tracking-wider whitespace-nowrap">
+                    {tech.name}
                   </span>
-                  <span className="text-[#d4af37]">•</span>
-                </React.Fragment>
+                  <span className="font-mono text-[10px] text-[#9ba1b3] group-hover:text-[#d4af37] transition-colors uppercase tracking-widest whitespace-nowrap border-l border-white/10 pl-2">
+                    {tech.category}
+                  </span>
+                </div>
               ))}
             </div>
-            {/* Seamless clone */}
-            <div
-              aria-hidden="true"
-              className="flex items-center gap-10 font-['Space_Grotesk'] text-sm sm:text-base tracking-widest text-[#9ba1b3]/40 uppercase shrink-0"
-            >
-              {PARTNERS_TICKER.map((partner, idx) => (
-                <React.Fragment key={`clone-${idx}`}>
-                  <span className="hover:text-white transition-colors cursor-default whitespace-nowrap">
-                    {partner}
+
+            {/* Seamless clone for infinite scroll */}
+            <div aria-hidden="true" className="flex items-center gap-4 shrink-0 pr-4">
+              {CREATIVE_TECH_STACK.map((tech, idx) => (
+                <div
+                  key={`clone-${idx}`}
+                  className="group flex items-center gap-3 px-4 py-2 rounded-full bg-[#12131a] hover:bg-[#181924] border border-white/10 hover:border-white/30 transition-all duration-300 shadow-md cursor-default"
+                >
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: tech.color, boxShadow: `0 0 8px ${tech.color}` }}
+                  />
+                  <span className="font-['Space_Grotesk'] text-xs sm:text-sm font-bold text-[#f5f6fa] group-hover:text-white uppercase tracking-wider whitespace-nowrap">
+                    {tech.name}
                   </span>
-                  <span className="text-[#d4af37]">•</span>
-                </React.Fragment>
+                  <span className="font-mono text-[10px] text-[#9ba1b3] group-hover:text-[#d4af37] transition-colors uppercase tracking-widest whitespace-nowrap border-l border-white/10 pl-2">
+                    {tech.category}
+                  </span>
+                </div>
               ))}
             </div>
           </div>

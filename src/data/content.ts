@@ -996,20 +996,32 @@ export const STUDIO_TESTIMONIALS: TestimonialItem[] = [
    4. GENERAL VAIKA DATA
 ============================================================ */
 
-export const PARTNERS_TICKER = [
-  'HDR FLAMBIENT EDITING',
-  'DAY-TO-DUSK CONVERSION',
-  'VIRTUAL STAGING SUITE',
-  '3D SPATIAL DOLLHOUSE',
-  'MATTERPORT DIGITAL TWINS',
-  '4K DRONE CINEMATOGRAPHY',
-  'FULL-STACK WEB DEVELOPMENT',
-  'ELITE UI/UX SYSTEMS',
-  'AI TRAINING DATA OPS',
-  'PRECISION ANNOTATION',
-  'GIS GEOSPATIAL MAPPING',
-  'ARCHITECTURAL 3D RENDERING'
+export interface TechStackItem {
+  name: string;
+  category: string;
+  color: string;
+  version?: string;
+}
+
+export const CREATIVE_TECH_STACK: TechStackItem[] = [
+  { name: 'UNREAL ENGINE 5.4', category: 'REAL-TIME 3D / VFX', color: '#00f0ff', version: 'v5.4' },
+  { name: 'ADOBE PHOTOSHOP', category: 'IMAGE POST-PROD & HDR', color: '#31a8ff', version: '2026' },
+  { name: 'DAVINCI RESOLVE STUDIO', category: 'CINEMATIC COLOR GRADE', color: '#f59e0b', version: 'v19' },
+  { name: 'BLENDER 3D', category: 'GEOMETRY & RENDERING', color: '#f97316', version: 'v4.2' },
+  { name: 'HOUDINI FX', category: 'PROCEDURAL SIMULATION', color: '#ff0055', version: 'v20.5' },
+  { name: 'MATTERPORT 3D PRO', category: 'SPATIAL DIGITAL TWIN', color: '#d4af37', version: 'PRO3' },
+  { name: 'NEXT.JS 15 & REACT 19', category: 'FULL-STACK WEB ENGINE', color: '#ffffff', version: 'App Router' },
+  { name: 'WEBGPU & THREE.JS', category: 'REAL-TIME BROWSER 3D', color: '#10b981', version: 'WGSL' },
+  { name: 'ADOBE AFTER EFFECTS', category: 'MOTION GRAPHICS & VFX', color: '#9d4edd', version: 'CC' },
+  { name: 'OCTANE RENDER', category: 'SPECTRAL RAY-TRACING', color: '#06b6d4', version: 'Spectral' },
+  { name: 'CHAOS V-RAY 6 & CORONA', category: 'PHOTOMETRIC ARCH-VIZ', color: '#eab308', version: 'v6.2' },
+  { name: 'ADOBE LIGHTROOM CLASSIC', category: 'RAW BATCH HARMONIZATION', color: '#38bdf8', version: 'Master' },
+  { name: 'PYTORCH & FASTAPI', category: 'AI DATA ANNOTATION OPS', color: '#ef4444', version: 'CUDA 12' },
+  { name: 'FIGMA', category: 'ELITE UI/UX SYSTEMS', color: '#a855f7', version: 'Design System' },
+  { name: 'AUTODESK MAYA', category: 'SUB-D QUAD TOPOLOGY', color: '#14b8a6', version: '2025' }
 ];
+
+export const PARTNERS_TICKER = CREATIVE_TECH_STACK.map((t) => t.name);
 
 export const TESTIMONIALS: TestimonialItem[] = [
   ...ESTATE_TESTIMONIALS,
@@ -1047,6 +1059,15 @@ export const TEAM_GROUP_DATA = {
     'Agent Services',
     'Data & AI Core',
     'Digital Marketing & Creative'
+  ],
+  technologies: [
+    'Unreal Engine 5.4',
+    'Photoshop & Lightroom',
+    'DaVinci Resolve Studio',
+    'Blender & Houdini FX',
+    'Matterport 3D Pro',
+    'Next.js 15 & WebGPU',
+    'PyTorch AI Ops'
   ]
 };
 

@@ -136,13 +136,28 @@ export const TeamSection: React.FC<TeamSectionProps> = () => {
               <p className="font-['Manrope'] text-sm text-[#9ba1b3] mt-1 max-w-2xl">
                 {TEAM_GROUP_DATA.description}
               </p>
+
+              {/* Creative Software & Technology Stack */}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="font-mono text-[10px] text-[#d4af37] uppercase tracking-wider mr-1">
+                  CORE SOFTWARE PIPELINE:
+                </span>
+                {TEAM_GROUP_DATA.technologies?.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 rounded-full bg-[#161720] border border-white/10 font-mono text-[11px] text-[#f5f6fa] hover:border-[#d4af37]/40 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-2 shrink-0">
               {TEAM_GROUP_DATA.divisions.map((div) => (
                 <span
                   key={div}
-                  className="px-3 py-1.5 rounded bg-[#161720] border border-white/10 font-mono text-[11px] text-[#f5f6fa]"
+                  className="px-3 py-1.5 rounded bg-[#161720] border border-white/10 font-mono text-[11px] text-[#d4af37] font-semibold"
                 >
                   {div}
                 </span>
