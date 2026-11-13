@@ -103,8 +103,8 @@ export function ProjectModal({ project, onClose, onSelectProject }: ProjectModal
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent opacity-40 pointer-events-none" />
           <div className="absolute bottom-4 left-4 right-4 flex flex-wrap justify-between items-center bg-[#050507]/85 backdrop-blur-md px-4 py-2.5 rounded border border-white/10">
-            <span className="font-mono text-xs text-[#9ba1b3]">
-              IMAGE: MASTER ARCHITECTURAL ELEVATION
+            <span className="font-mono text-xs text-[#9ba1b3] uppercase">
+              SHOWCASE // {project.badge1}
             </span>
             <span className="font-mono text-xs text-[#d4af37]">
               {project.techSpecs || '8192 x 4320 • COLOR GRADE 33-POINT LUT'}

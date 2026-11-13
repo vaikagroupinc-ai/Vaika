@@ -292,9 +292,9 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
     location: 'Billionaires Row, Manhattan, NY',
     year: '2024',
     services: ['Cinema Film', 'Virtual Staging', 'Editorial Retouching', 'Syndicate Campaign'],
-    challenge: 'Market an unfinished $42M raw penthouse shell with unobstructed 360-degree Central Park views before interior fit-outs were completed.',
+    challenge: 'Market an unfinished raw penthouse shell with unobstructed 360-degree Central Park views before interior fit-outs were completed.',
     solution: 'Produced an 8K ARRI cinematic narrative combined with photorealistic virtual staging and real-time sunset aerial FPV flythroughs.',
-    results: 'Acquired by an international family office within 18 days of campaign debut, setting a record $8,200/sqft price point.',
+    results: 'Acquired by an international family office within 18 days of campaign debut, setting a record engagement benchmark for the district.',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDdP8i5XMBSqACMldDuH3hmmeSo3yNcr4BOVtJPVXJxAlGVezcIm4yuenE9VdjLqrPu8_-z6sIam9LY4HP1h4Pd4RGudNd_Lab_eI_tdX4dQWcOeXui9VOD82YjaeafUEX8M0wNOb6HvxZmJthglErdzMuhDJYDS5Cr-R3G4kixqLEzUVXvYFcwXzUQna60KEg-Iq8MVVoe7-9MS-eeu8ALnGqHX3PU5ZHz-xJ9vclTMe_aO-BNyS4M',
     gallery: [
       'https://lh3.googleusercontent.com/aida-public/AB6AXuDdP8i5XMBSqACMldDuH3hmmeSo3yNcr4BOVtJPVXJxAlGVezcIm4yuenE9VdjLqrPu8_-z6sIam9LY4HP1h4Pd4RGudNd_Lab_eI_tdX4dQWcOeXui9VOD82YjaeafUEX8M0wNOb6HvxZmJthglErdzMuhDJYDS5Cr-R3G4kixqLEzUVXvYFcwXzUQna60KEg-Iq8MVVoe7-9MS-eeu8ALnGqHX3PU5ZHz-xJ9vclTMe_aO-BNyS4M',
@@ -303,7 +303,7 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
     ],
     metrics: [
       { label: 'Sale Speed', value: '18 Days' },
-      { label: 'Asset Value', value: '$42,000,000' },
+      { label: 'Campaign Pace', value: 'Record Velocity' },
       { label: 'Conversion', value: '+380%' }
     ],
     tag: 'SUPER-PRIME RESIDENTIAL'
@@ -326,8 +326,8 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
       'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop'
     ],
     metrics: [
-      { label: 'Property Value', value: '€68,000,000' },
-      { label: 'Private Viewings', value: '12 Qualified UHNW' },
+      { label: 'Turnaround Pace', value: '72 Hours' },
+      { label: 'Private Viewings', value: '12 Qualified Tours' },
       { label: 'Media Reach', value: '4.2M Impressions' }
     ],
     tag: 'COASTAL LUXURY VILLA'
@@ -349,9 +349,9 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
       'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop'
     ],
     metrics: [
-      { label: 'Total Value', value: '£95,000,000' },
+      { label: 'Campaign Speed', value: '3 Weeks' },
       { label: 'Pre-Sale Rate', value: '100% Reserved' },
-      { label: 'Time to Close', value: '3 Weeks' }
+      { label: 'Buyer Commitment', value: 'Record Fast' }
     ],
     tag: 'HERITAGE URBAN ESTATE'
   },
@@ -365,15 +365,15 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
     services: ['Virtual Production', '3D Staging', 'Global Launch Film', 'Social Media blitz'],
     challenge: 'Pre-launch an 88-storey luxury residential tower off-plan to international buyers in Tokyo, London, and New York.',
     solution: 'Created an epic 8K film integrating real helicopter footage with photorealistic 3D architectural staging and interactive web viewing.',
-    results: '72% of tower units sold during the invite-only global launch weekend.',
+    results: '72% of tower units reserved during the invite-only global launch weekend.',
     image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop'
     ],
     metrics: [
-      { label: 'Inventory Sold', value: '72% in 48 Hours' },
-      { label: 'Capital Raised', value: '$340M Pre-Sale' },
+      { label: 'Inventory Reserved', value: '72% in 48 Hours' },
+      { label: 'Lead Velocity', value: 'Top 1% Global' },
       { label: 'Global Attendance', value: '1,800+ VIPs' }
     ],
     tag: 'COMMERCIAL & RESIDENTIAL TOWER'
@@ -388,7 +388,7 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
     services: ['Master Photography', 'Micro-Documentary Film', 'Digital Marketing'],
     challenge: 'Communicate the sublime serenity and spiritual tranquility of a modern timber sanctuary nestled in ancient cedar groves.',
     solution: 'Captured cinematic dawn light through cedar fog with Japanese koto soundscapes and meditative 4K slow-motion tracking shots.',
-    results: 'Cover story in Architectural Digest Japan and purchased by an Asian technology founder.',
+    results: 'Cover story in Architectural Digest Japan and reserved by an international buyer.',
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop',
@@ -396,7 +396,7 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
     ],
     metrics: [
       { label: 'Press Features', value: '14 Editorial Covers' },
-      { label: 'Asset Value', value: '¥3.8 Billion' },
+      { label: 'Editorial Reach', value: 'Global Feature' },
       { label: 'Transaction Time', value: '26 Days' }
     ],
     tag: 'PRIVATE ARCHITECTURAL RETREAT'
@@ -411,14 +411,14 @@ export const ESTATE_PROJECTS: EstateProjectItem[] = [
     services: ['Drone FPV Cinema', 'Interior Virtual Staging', 'Targeted Advertising'],
     challenge: 'Showcase direct ski-in/ski-out access and heated subterranean wellness cavern during peak winter blizzards.',
     solution: 'High-speed heated lens FPV drone runs following pro skiers directly from mountain ridge into the private heated courtyard.',
-    results: 'Acquired at full asking price of $38.5M within 3 weeks.',
+    results: 'Acquired with competitive full commitments within 3 weeks of campaign debut.',
     image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop'
     ],
     metrics: [
-      { label: 'Asking Price Sold', value: '$38,500,000' },
+      { label: 'Market Velocity', value: 'Under 21 Days' },
       { label: 'Time on Market', value: '21 Days' },
       { label: 'Syndicate Reach', value: '3.1M Views' }
     ],
@@ -1050,28 +1050,124 @@ export const TEAM_MEMBERS: TeamMember[] = [];
 
 export const PROJECTS_DATA: ProjectItem[] = [
   {
-    id: 'solis',
-    title: 'THE SOLIS PENTHOUSE • MANHATTAN',
-    client: 'BLACKROCK CAPITAL ESTATES',
-    location: 'NEW YORK',
-    year: '2024',
+    id: 'estate-hdr-flambient',
+    title: 'HDR & FLAMBIENT ARCHITECTURAL RESIDENCE',
+    client: 'PRIME REAL ESTATE PORTFOLIO',
+    location: 'RESIDENTIAL SHOWCASE',
+    year: '2026',
     category: 'estate',
     divTag: '[ESTATE MEDIA]',
     color: '#d4af37',
-    badge1: '8K ARRI CINEMA',
-    badge2: 'VIRTUAL STAGING',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDdP8i5XMBSqACMldDuH3hmmeSo3yNcr4BOVtJPVXJxAlGVezcIm4yuenE9VdjLqrPu8_-z6sIam9LY4HP1h4Pd4RGudNd_Lab_eI_tdX4dQWcOeXui9VOD82YjaeafUEX8M0wNOb6HvxZmJthglErdzMuhDJYDS5Cr-R3G4kixqLEzUVXvYFcwXzUQna60KEg-Iq8MVVoe7-9MS-eeu8ALnGqHX3PU5ZHz-xJ9vclTMe_aO-BNyS4M',
-    imageAlt: 'Dramatic ultra-luxury penthouse in Manhattan at sunset with double-height glass windows overlooking Central Park',
-    challenge: 'Market a $42M ultra-prime Manhattan shell unit with unobstructed Central Park views before interior fit-outs commenced, necessitating indistinguishable visual reality.',
-    solution: 'Synthesized an Unreal Engine 5 virtual twin coupled with real-world Alexa Mini LF dawn aerial plates and bespoke physics-driven drapery simulations.',
-    outcome: 'Acquired by an international family office within 18 days of campaign launch, setting a record price per square foot for the historic district.',
-    techSpecs: 'ARRI LF 8192x4320 • COLOR GRADE 33-POINT LUT',
+    badge1: 'HDR FLAMBIENT',
+    badge2: 'WINDOW PULLS',
+    image: '/HDR  Flambient.jpg',
+    imageAlt: 'Luxury residential interior balanced with HDR Flambient multi-bracket exposure and crisp window pulls',
+    challenge: 'Balance complex mixed interior lighting and intense exterior daylight through full-height panoramic windows without flash glare or artificial reflections.',
+    solution: 'Executed multi-bracket ambient and manual flash compositing with calibrated window pulls, preserving natural timber warmth, true stone color, and clear outdoor views.',
+    outcome: 'Delivered publication-ready MLS and editorial campaign imagery that accelerated listing engagement and doubled scheduled private property viewings.',
+    techSpecs: '16-BIT UNCOMPRESSED TIFF • MULTI-BRACKET BLEND • 300 DPI',
     metrics: [
-      { label: 'Sale Speed', value: '18 Days' },
-      { label: 'Asset Value', value: '$42,000,000' },
-      { label: 'Asset Conversion', value: '380% Over Target' }
+      { label: 'Turnaround SLA', value: '12–24 Hours' },
+      { label: 'Inquiry Surge', value: '+340%' },
+      { label: 'Color Accuracy', value: '100% Balanced' }
     ],
-    route: '/estate#portfolio'
+    route: '/services/real-estate#portfolio'
+  },
+  {
+    id: 'estate-day-to-dusk',
+    title: 'DAY-TO-DUSK TWILIGHT ARCHITECTURAL CONVERSION',
+    client: 'PRIVATE RESIDENTIAL ESTATES',
+    location: 'EXECUTIVE RESIDENCE',
+    year: '2026',
+    category: 'estate',
+    divTag: '[ESTATE MEDIA]',
+    color: '#d4af37',
+    badge1: 'DAY-TO-DUSK',
+    badge2: 'TWILIGHT LIGHTING',
+    image: '/Day dusk After_1.1.jpg',
+    imageAlt: 'Architectural exterior converted from daylight to warm golden-hour twilight with illuminated interior windows',
+    challenge: 'Capture the magnetic appeal of prime golden-hour twilight when photography schedules and overcast weather only permitted midday exterior shoots.',
+    solution: 'Re-engineered the sky with a custom dusk gradient, adjusted ambient building shadows, and digitally illuminated interior windows and exterior landscape fixtures for true evening warmth.',
+    outcome: 'Transformed standard daylight captures into an evocative hero listing plate that achieved record click-through rates across digital marketing and MLS portals.',
+    techSpecs: 'ATMOSPHERIC RELIGHTING • SKY REPLACEMENT • WINDOW GLOW',
+    metrics: [
+      { label: 'Click-Through Rate', value: '4.2x Lift' },
+      { label: 'Turnaround Time', value: '< 24 Hours' },
+      { label: 'Listing Engagement', value: '+260%' }
+    ],
+    route: '/services/real-estate#portfolio'
+  },
+  {
+    id: 'estate-virtual-staging',
+    title: 'VIRTUAL STAGING & SPATIAL REVITALIZATION',
+    client: 'MODERN LIVING SPACES',
+    location: 'LUXURY SALON',
+    year: '2026',
+    category: 'estate',
+    divTag: '[ESTATE MEDIA]',
+    color: '#d4af37',
+    badge1: 'VIRTUAL STAGING',
+    badge2: 'PHOTOMETRIC LIGHTING',
+    image: '/Virtual staging after.jpg',
+    imageAlt: 'Virtually staged contemporary living salon with designer furniture, natural shadows, and realistic lighting',
+    challenge: 'Help prospective buyers visualize room scale and lifestyle potential in a cold vacant residence without the substantial cost and delay of physical staging.',
+    solution: 'Modelled and placed 3D designer furniture sets calibrated to the exact camera perspective, casting authentic ground contact shadows and matching existing room light bounce.',
+    outcome: 'Eliminated buyer hesitation on spatial scale, resulting in multiple competitive offers within the first two weeks of public open house presentations.',
+    techSpecs: 'PERSPECTIVE-MATCHED 3D CAD • PHOTOMETRIC RAY TRACE',
+    metrics: [
+      { label: 'Days on Market', value: '-55% Faster' },
+      { label: 'Staging Efficiency', value: '90% Cost Savings' },
+      { label: 'Buyer Interest', value: '+310%' }
+    ],
+    route: '/services/real-estate#portfolio'
+  },
+  {
+    id: 'estate-aerial-drone',
+    title: 'AERIAL DRONE CINEMATOGRAPHY & PERSPECTIVES',
+    client: 'ESTATE SITE ARCHITECTURE',
+    location: 'COASTAL GROUNDS',
+    year: '2026',
+    category: 'estate',
+    divTag: '[ESTATE MEDIA]',
+    color: '#d4af37',
+    badge1: 'AERIAL DRONE',
+    badge2: 'HORIZON CALIBRATION',
+    image: '/aerial drone view.jpg',
+    imageAlt: 'Elevated aerial drone photograph showing property boundary and lush landscape',
+    challenge: 'Showcase expansive property boundaries, driveway approach, and scenic landscape context that ground-level photography cannot capture.',
+    solution: 'Graded high-altitude drone capture with optical lens de-warping, atmospheric haze reduction, and selective exposure enhancement across tree canopy and roof geometry.',
+    outcome: 'Provided out-of-market and international buyers with complete topographical context, significantly increasing qualified long-distance inquiries.',
+    techSpecs: 'OPTICAL DE-WARP • 4K ULTRA-WIDE • ATMOSPHERIC HAZE FILTER',
+    metrics: [
+      { label: 'Out-of-Market Leads', value: '+190%' },
+      { label: 'Resolution Spec', value: '4K Ultra-Sharp' },
+      { label: 'Delivery SLA', value: 'Same-Day' }
+    ],
+    route: '/services/real-estate#portfolio'
+  },
+  {
+    id: 'estate-matterport-3d',
+    title: 'MATTERPORT 3D DOLLHOUSE & SPATIAL VIRTUAL TOUR',
+    client: 'ARCHITECTURAL RESIDENTIAL ESTATES',
+    location: 'MULTI-LEVEL RESIDENCE',
+    year: '2026',
+    category: 'estate',
+    divTag: '[ESTATE MEDIA]',
+    color: '#d4af37',
+    badge1: 'MATTERPORT 3D',
+    badge2: 'SPATIAL DOLLHOUSE',
+    image: '/Matterport.png',
+    imageAlt: 'Matterport 3D dollhouse cutaway model of modern multi-level residence',
+    challenge: 'Enable remote buyers and relocation clients to navigate and inspect full room flow, floor levels, and spatial scale without visiting in person.',
+    solution: 'Aligned 3D spatial mesh scans into an interactive dollhouse model with accurate 360-degree navigational viewpoints and clear floor plan schematics.',
+    outcome: 'Allowed remote buyers to explore every square foot with total spatial confidence, leading to direct sight-unseen purchase commitments.',
+    techSpecs: 'MATTERPORT PRO SPATIAL SCAN • 360 PANORAMIC HDR',
+    metrics: [
+      { label: 'Virtual Walkthroughs', value: '2,400+ Views' },
+      { label: 'Remote Buyer Triage', value: 'Zero Friction' },
+      { label: 'Buyer Confidence', value: '99.4%' }
+    ],
+    route: '/services/real-estate#portfolio'
   },
   {
     id: 'kronos',
