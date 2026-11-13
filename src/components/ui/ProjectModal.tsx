@@ -72,7 +72,7 @@ export function ProjectModal({ project, onClose, onSelectProject }: ProjectModal
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <span className="font-['Space_Grotesk'] text-xs text-[#9ba1b3] uppercase tracking-widest block">
-              CLIENT: {project.client}
+              PORTFOLIO ARCHIVE // {project.category.toUpperCase()}
             </span>
             <h2 className="font-['Space_Grotesk'] text-2xl sm:text-4xl font-bold uppercase text-[#f5f6fa] tracking-tight mt-1">
               {project.title}

@@ -345,7 +345,7 @@ export function ContactSection({
                   type="text"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  placeholder="Lord Marcus Vance // Foster Partners"
+                  placeholder="Marcus Vance // Property Group"
                   className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#d4af37]"
                 />
               </div>

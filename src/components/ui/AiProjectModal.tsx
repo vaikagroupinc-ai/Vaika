@@ -75,7 +75,7 @@ export function AiProjectModal({
             <div className="flex items-center gap-2 text-xs font-mono text-[#8b5cf6] mb-1">
               <span>{project.category}</span>
               <span>•</span>
-              <span>{project.client}</span>
+              <span>ENTERPRISE SPEC</span>
               <span>•</span>
               <span>{project.year}</span>
             </div>

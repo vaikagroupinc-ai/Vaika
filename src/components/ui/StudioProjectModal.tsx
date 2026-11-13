@@ -97,7 +97,7 @@ export function StudioProjectModal({
               <span>•</span>
               <span>{project.year}</span>
               <span>•</span>
-              <span>{project.client}</span>
+              <span>SPATIAL 3D ARCHIVE</span>
             </div>
             <h2 className="font-['Space_Grotesk'] text-2xl sm:text-4xl font-bold uppercase text-[#f5f6fa] tracking-tight">
               {project.title}

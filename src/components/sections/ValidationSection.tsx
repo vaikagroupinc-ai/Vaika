@@ -33,7 +33,7 @@ export function ValidationSection() {
             </h2>
           </div>
           <p className="font-['Manrope'] text-sm sm:text-base text-[#9ba1b3] max-w-sm">
-            Collaborating with visionary developers, global sovereign funds, and pioneering engineering institutes.
+            Collaborating with real estate professionals, visionary developers, and enterprise partners across global markets.
           </p>
         </div>
 

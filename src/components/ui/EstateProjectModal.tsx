@@ -99,7 +99,7 @@ export function EstateProjectModal({
               {project.title}
             </h2>
             <p className="font-['Manrope'] text-sm text-[#9ba1b3] mt-1">
-              CLIENT: <span className="text-[#f5f6fa] font-semibold">{project.client}</span>
+              DISCIPLINE: <span className="text-[#f5f6fa] font-semibold">{project.propertyType}</span>
             </p>
           </div>
 

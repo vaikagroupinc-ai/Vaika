@@ -682,7 +682,7 @@ export const AGENT_SERVICES_DIVISION: ServiceDivisionData = {
             'Standard Operating Procedure (SOP) documentation'
           ],
           problemSolved:
-            'Liberates agents from $15/hour administrative tasks so their daily focus remains solely on $500/hour client negotiation and prospecting activities.',
+            'Liberates agents from repetitive administrative tasks so their daily focus remains solely on high-value client negotiation and prospecting activities.',
           deliverables: [
             'Daily operational recap reports',
             'Organized inbox and clean calendar dispatch'
@@ -769,7 +769,7 @@ export const AGENT_SERVICES_DIVISION: ServiceDivisionData = {
       id: 'demo-crm-pipeline',
       title: 'Autonomous CRM Pipeline Matrix',
       category: 'Agent Operations',
-      description: 'Automated lead ingestion, tagging, and multi-stage nurture sequences for a $45M luxury agent team.',
+      description: 'Automated lead ingestion, tagging, and multi-stage nurture sequences for a premier luxury agent team.',
       image: '/assets/demonstrations/agent-crm-pipeline.jpg',
       badge: 'Operations Architecture',
       tags: ['CRM Hygiene', 'Auto-Drips', 'Pipeline Tagging']

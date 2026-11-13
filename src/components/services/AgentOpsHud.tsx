@@ -67,7 +67,7 @@ export function AgentOpsHud() {
                 <div className="flex justify-between items-center text-xs font-bold text-white">
                   <span>Waterfront Buyer Lead</span>
                   <span className="font-mono text-[10px] text-[#d4af37] bg-[#d4af37]/10 px-1.5 py-0.5 rounded">
-                    $3.8M
+                    PRE-QUALIFIED
                   </span>
                 </div>
                 <p className="text-[11px] text-[#9ba1b3]">
@@ -91,7 +91,7 @@ export function AgentOpsHud() {
                 <div className="flex justify-between items-center text-xs font-bold text-white">
                   <span>Past Client Referral</span>
                   <span className="font-mono text-[10px] text-[#e1e2e6] bg-white/5 px-1.5 py-0.5 rounded">
-                    $2.4M
+                    VERIFIED BUYER
                   </span>
                 </div>
                 <p className="text-[11px] text-[#9ba1b3]">
@@ -133,13 +133,13 @@ export function AgentOpsHud() {
                 <span className="font-['Space_Grotesk'] text-xs font-bold text-[#d4af37] uppercase">
                   UNDER ESCROW / TC (6)
                 </span>
-                <span className="font-mono text-[10px] text-[#d4af37]">$19.2M VOL</span>
+                <span className="font-mono text-[10px] text-[#d4af37]">ACTIVE PIPELINE</span>
               </div>
               <div className="p-3 rounded bg-[#161720] border border-[#d4af37]/30 flex flex-col gap-1">
                 <div className="flex justify-between items-center text-xs font-bold text-white">
                   <span>Villa Bellisima</span>
                   <span className="font-mono text-[10px] text-[#d4af37] font-bold">
-                    $6,900,000
+                    CLOSING PROTOCOL
                   </span>
                 </div>
                 <p className="text-[11px] text-[#9ba1b3]">
@@ -165,11 +165,11 @@ export function AgentOpsHud() {
               <div className="space-y-2 text-xs">
                 <div className="p-2.5 rounded bg-[#161720] flex justify-between items-center">
                   <span className="text-[#f5f6fa]">IG Luxury Property Carousel</span>
-                  <span className="font-mono text-[#d4af37]">$2.14 CPL</span>
+                  <span className="font-mono text-[#d4af37]">OPTIMIZED CPL</span>
                 </div>
                 <div className="p-2.5 rounded bg-[#161720] flex justify-between items-center">
                   <span className="text-[#f5f6fa]">Facebook Local Homeowner Targeting</span>
-                  <span className="font-mono text-[#d4af37]">$3.42 CPL</span>
+                  <span className="font-mono text-[#d4af37]">TARGET CPL</span>
                 </div>
                 <div className="p-2.5 rounded bg-[#161720] flex justify-between items-center">
                   <span className="text-[#f5f6fa]">High-Intent Instant Form Leads</span>
