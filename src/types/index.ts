@@ -284,6 +284,9 @@ export interface TestimonialItem {
   duration?: string;
   division: DivisionKey;
   avatar?: string;
+  videoUrl?: string;
+  videoPoster?: string;
+  tag?: string;
 }
 
 export interface ProcessStep {

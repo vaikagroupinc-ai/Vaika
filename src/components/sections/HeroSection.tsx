@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { HERO_POSTER_SRC } from '@/lib/hero/frameSequence';
 import { drawCoverFrame } from '@/lib/hero/drawCoverFrame';
 
@@ -16,7 +16,6 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
   const mediaStageRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const heroBlockRef = useRef<HTMLDivElement | null>(null);
-  const scrollCueRef = useRef<HTMLDivElement | null>(null);
   const storyBeatOneRef = useRef<HTMLDivElement | null>(null);
   const storyBeatTwoRef = useRef<HTMLDivElement | null>(null);
   const exitVeilRef = useRef<HTMLDivElement | null>(null);
@@ -142,7 +141,7 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
           section,
           mediaStage,
           heroBlock,
-          scrollCue: scrollCueRef.current,
+          scrollCue: null,
           storyBeatOne: storyBeatOneRef.current,
           storyBeatTwo: storyBeatTwoRef.current,
           exitVeil: exitVeilRef.current,
@@ -328,16 +327,6 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Minimal Scroll Prompt (Bottom Right) */}
-      <div
-        ref={scrollCueRef}
-        aria-hidden="true"
-        className="pointer-events-none hidden sm:flex items-center gap-2.5 absolute right-8 lg:right-10 bottom-12 z-20 font-mono text-[10px] uppercase tracking-[0.22em] text-[#cbd0df]/80"
-      >
-        <span>SCROLL</span>
-        <ArrowDown className="w-3.5 h-3.5 text-[#d4af37]" />
       </div>
 
       {/* Subtle Scroll Sequence Progress Hairline */}
