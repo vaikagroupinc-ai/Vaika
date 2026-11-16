@@ -73,13 +73,16 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #050507;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #232634;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #d4af37;
 }
@@ -118,6 +121,7 @@ body {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -135,10 +139,13 @@ body {
 
 /* Monolith Glow Animation */
 @keyframes glowPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.04);

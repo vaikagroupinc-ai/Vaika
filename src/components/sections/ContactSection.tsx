@@ -211,11 +211,10 @@ export function ContactSection({
                 setMatrixMode('client');
                 setErrorMessage(null);
               }}
-              className={`px-6 py-2.5 rounded font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                matrixMode === 'client'
-                  ? 'bg-[#f5f6fa] text-[#050507] shadow-md'
-                  : 'text-[#9ba1b3] hover:text-white'
-              }`}
+              className={`px-6 py-2.5 rounded font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${matrixMode === 'client'
+                ? 'bg-[#f5f6fa] text-[#050507] shadow-md'
+                : 'text-[#9ba1b3] hover:text-white'
+                }`}
             >
               CLIENT ENGAGEMENT
             </button>
@@ -225,11 +224,10 @@ export function ContactSection({
                 setMatrixMode('talent');
                 setErrorMessage(null);
               }}
-              className={`px-6 py-2.5 rounded font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                matrixMode === 'talent'
-                  ? 'bg-[#00f0ff] text-[#050507] shadow-md'
-                  : 'text-[#9ba1b3] hover:text-white'
-              }`}
+              className={`px-6 py-2.5 rounded font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${matrixMode === 'talent'
+                ? 'bg-[#00f0ff] text-[#050507] shadow-md'
+                : 'text-[#9ba1b3] hover:text-white'
+                }`}
             >
               JOIN THE COLLECTIVE // TALENT
             </button>
@@ -311,11 +309,10 @@ export function ContactSection({
                 {TARGET_CAPABILITIES.map((cap) => (
                   <label
                     key={cap}
-                    className={`flex items-center gap-3 p-3 rounded cursor-pointer transition-all border ${
-                      capabilities.includes(cap)
-                        ? 'bg-[#161720] border-[#d4af37] text-white shadow-[0_0_12px_rgba(212,175,55,0.15)]'
-                        : 'bg-[#12131a] border-white/5 text-[#9ba1b3] hover:bg-[#161720]'
-                    }`}
+                    className={`flex items-center gap-3 p-3 rounded cursor-pointer transition-all border ${capabilities.includes(cap)
+                      ? 'bg-[#161720] border-[#d4af37] text-white shadow-[0_0_12px_rgba(212,175,55,0.15)]'
+                      : 'bg-[#12131a] border-white/5 text-[#9ba1b3] hover:bg-[#161720]'
+                      }`}
                   >
                     <input
                       type="checkbox"
@@ -485,11 +482,10 @@ export function ContactSection({
                 {TALENT_DISCIPLINES.map((disc) => (
                   <label
                     key={disc}
-                    className={`flex items-center gap-3 p-3 rounded cursor-pointer transition-colors border ${
-                      discipline === disc
-                        ? 'bg-[#161720] border-[#00f0ff] text-white'
-                        : 'bg-[#12131a] border-white/5 hover:border-[#00f0ff]/40 text-[#f5f6fa]'
-                    }`}
+                    className={`flex items-center gap-3 p-3 rounded cursor-pointer transition-colors border ${discipline === disc
+                      ? 'bg-[#161720] border-[#00f0ff] text-white'
+                      : 'bg-[#12131a] border-white/5 hover:border-[#00f0ff]/40 text-[#f5f6fa]'
+                      }`}
                   >
                     <input
                       type="radio"
