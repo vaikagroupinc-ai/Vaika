@@ -54,10 +54,11 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
       name: 'REAL ESTATE MEDIA',
       color: '#d4af37',
       tag: '01 // REAL ESTATE',
-      ctaText: 'DISCUSS YOUR PROJECT',
+      ctaText: 'GET A FREE DEMO',
       route: '/services/real-estate',
       links: [
         { label: 'OVERVIEW', href: '#hero' },
+        { label: 'FREE DEMO', href: '#free-demo' },
         { label: 'ABOUT', href: '#about' },
         { label: 'SERVICES', href: '#services' },
         { label: 'WORKFLOW', href: '#workflow' },
@@ -212,7 +213,7 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
             <CountryLanguageSelector compact align="right" />
 
             <button
-              onClick={() => scrollTo('#contact')}
+              onClick={() => scrollTo(normalizedDivision === 'estate' ? '#free-demo' : '#contact')}
               style={{ borderColor: `${config.color}50` }}
               className="relative hidden sm:inline-flex items-center justify-center px-3 py-2 rounded bg-[#161720] text-[#f5f6fa] font-['Space_Grotesk'] text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap hover:bg-[#20222d] transition-all border shadow-[0_0_20px_-4px_rgba(0,0,0,0.5)] group cursor-pointer"
             >
@@ -302,7 +303,10 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
 
           <div className="pt-6 mt-4 border-t border-white/10">
             <button
-              onClick={() => scrollTo('#contact')}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                scrollTo(normalizedDivision === 'estate' ? '#free-demo' : '#contact');
+              }}
               style={{ backgroundColor: config.color }}
               className="w-full py-3.5 rounded text-[#050507] font-['Space_Grotesk'] text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl hover:brightness-110 transition-all cursor-pointer"
             >

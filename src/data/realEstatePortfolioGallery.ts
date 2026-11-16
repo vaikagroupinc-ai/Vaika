@@ -226,7 +226,7 @@ export const REAL_ESTATE_PORTFOLIO_PROJECTS: DemonstrationItem[] = [
         id: 'dusk-05',
         title: 'Twilight Grading Master',
         caption: 'Hero twilight architectural composition.',
-        src: '/twinlight_.jpg',
+        src: '/twinlight.jpg',
         alt: 'Twilight architectural showcase',
         assetRole: 'Twilight Master',
       },

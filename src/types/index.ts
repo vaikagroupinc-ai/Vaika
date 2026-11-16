@@ -287,6 +287,7 @@ export interface TestimonialItem {
   videoUrl?: string;
   videoPoster?: string;
   tag?: string;
+  rating?: number;
 }
 
 export interface ProcessStep {

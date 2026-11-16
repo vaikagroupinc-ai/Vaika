@@ -2,15 +2,17 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Images } from 'lucide-react';
 import { PROJECTS_DATA } from '@/data/content';
-import { ProjectItem, DivisionKey } from '@/types';
+import { REAL_ESTATE_PORTFOLIO_PROJECTS } from '@/data/realEstatePortfolioGallery';
+import { ProjectItem, DivisionKey, DemonstrationItem } from '@/types';
 
 interface PortfolioSectionProps {
   onSelectProject: (project: ProjectItem) => void;
+  onSelectDemonstration?: (demo: DemonstrationItem) => void;
 }
 
-export function PortfolioSection({ onSelectProject }: PortfolioSectionProps) {
+export function PortfolioSection({ onSelectProject, onSelectDemonstration }: PortfolioSectionProps) {
   const [activeFilter, setActiveFilter] = useState<'all' | DivisionKey>('all');
 
   const filterTabs = [
@@ -66,10 +68,35 @@ export function PortfolioSection({ onSelectProject }: PortfolioSectionProps) {
             const colSpan = isLarge ? 'lg:col-span-8' : 'lg:col-span-4';
             const aspect = isLarge ? 'aspect-[16/10]' : 'aspect-[4/5]';
 
+            const estateDemoMatch =
+              project.category === 'estate'
+                ? REAL_ESTATE_PORTFOLIO_PROJECTS.find(
+                    (d) =>
+                      d.image === project.image ||
+                      d.id === project.id ||
+                      d.id === `demo-${project.id.replace(/^estate-/, '')}` ||
+                      (project.id === 'estate-hdr-flambient' && d.id === 'demo-flambient') ||
+                      (project.id === 'estate-day-to-dusk' && d.id === 'demo-day-dusk') ||
+                      (project.id === 'estate-virtual-staging' && d.id === 'demo-virtual-staging') ||
+                      (project.id === 'estate-aerial-drone' && d.id === 'demo-aerial-drone') ||
+                      (project.id === 'estate-matterport-3d' && d.id === 'demo-matterport-3d')
+                  )
+                : null;
+
+            const hasInteractiveSlideshow = Boolean(
+              estateDemoMatch?.gallery && estateDemoMatch.gallery.length > 0
+            );
+
             return (
               <div
                 key={project.id}
-                onClick={() => onSelectProject(project)}
+                onClick={() => {
+                  if (estateDemoMatch && onSelectDemonstration) {
+                    onSelectDemonstration(estateDemoMatch);
+                  } else {
+                    onSelectProject(project);
+                  }
+                }}
                 className={`${colSpan} group cursor-pointer bg-[#0f1017] rounded-lg overflow-hidden relative shadow-2xl border border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-1`}
               >
                 <div className={`${aspect} overflow-hidden relative bg-[#161720]`}>
@@ -81,6 +108,17 @@ export function PortfolioSection({ onSelectProject }: PortfolioSectionProps) {
                     sizes={isLarge ? '(max-width: 1024px) 100vw, 66vw' : '(max-width: 1024px) 100vw, 33vw'}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#050507]/30 to-transparent" />
+
+                  {/* Real Estate interactive slideshow badge */}
+                  {hasInteractiveSlideshow && estateDemoMatch?.gallery && (
+                    <span className="absolute top-3 right-3 font-mono text-[10px] uppercase tracking-wider bg-[#050507]/90 px-2.5 py-1 rounded border border-[#d4af37]/40 text-[#d4af37] backdrop-blur flex items-center gap-1.5 shadow-lg group-hover:bg-[#d4af37] group-hover:text-[#050507] transition-all z-10">
+                      <Images className="w-3 h-3" />
+                      <span>
+                        {String(estateDemoMatch.gallery.length).padStart(2, '0')} FRAMES
+                        {estateDemoMatch.beforeAfterPairs?.length ? ' • BEFORE/AFTER' : ''}
+                      </span>
+                    </span>
+                  )}
                 </div>
 
                 <div className="p-6 absolute bottom-0 left-0 right-0 flex justify-between items-end">
@@ -102,11 +140,18 @@ export function PortfolioSection({ onSelectProject }: PortfolioSectionProps) {
                     </h3>
                   </div>
 
-                  <span
-                    className="w-10 h-10 rounded bg-[#161720]/80 backdrop-blur border border-white/10 flex items-center justify-center text-white group-hover:bg-[#d4af37] group-hover:text-[#050507] transition-all shrink-0 ml-3"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </span>
+                  <div className="flex items-center gap-2">
+                    {hasInteractiveSlideshow && (
+                      <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-widest text-[#d4af37] opacity-0 group-hover:opacity-100 transition-opacity">
+                        SLIDESHOW
+                      </span>
+                    )}
+                    <span
+                      className="w-10 h-10 rounded bg-[#161720]/80 backdrop-blur border border-white/10 flex items-center justify-center text-white group-hover:bg-[#d4af37] group-hover:text-[#050507] transition-all shrink-0 ml-1"
+                    >
+                      <ArrowUpRight className="w-5 h-5" />
+                    </span>
+                  </div>
                 </div>
               </div>
             );

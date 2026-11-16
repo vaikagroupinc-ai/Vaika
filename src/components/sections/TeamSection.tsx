@@ -53,9 +53,10 @@ export const TeamSection: React.FC<TeamSectionProps> = () => {
 
           <div className="lg:col-span-7 flex flex-col justify-center space-y-4">
             <div className="flex items-center gap-2 font-mono text-xs text-[#9ba1b3]">
-              <span>DIRECTOR PROTOCOL</span>
-              <span className="text-[#d4af37]">•</span>
-              <span className="text-[#f5f6fa]">{FOUNDER_DATA.protocol}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]" />
+              <span className="text-[#d4af37] font-semibold tracking-wider uppercase">EXECUTIVE LEADERSHIP</span>
+              <span className="text-[#525866]">•</span>
+              <span className="text-[#f5f6fa] uppercase tracking-wider font-medium">{FOUNDER_DATA.protocol}</span>
             </div>
 
             <h3 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-bold uppercase text-[#f5f6fa] tracking-tight">

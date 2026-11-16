@@ -436,12 +436,13 @@ export const PABLO_VIDEO_TESTIMONIAL: TestimonialItem = {
     '“Working with Vaika has been an outstanding experience. Their team consistently delivers incredible media quality, fast turnaround times, and flawless execution that sets a new standard for our projects.”',
   author: 'PABLO SOARES',
   role: 'Client Partner',
-  company: 'Real Estate & Media Production',
+  company: 'Take Five Films',
   location: 'International',
   division: 'estate',
   videoUrl: '/videos/Pablo.mp4',
   videoPoster: '/videos/pablo_poster.jpg',
-  tag: 'CLIENT VIDEO REVIEW • REAL ESTATE MEDIA'
+  tag: 'CLIENT VIDEO REVIEW • REAL ESTATE MEDIA',
+  rating: 4.9,
 };
 
 export const AUTHENTIC_CLIENT_TESTIMONIALS: TestimonialItem[] = [
@@ -455,7 +456,8 @@ export const AUTHENTIC_CLIENT_TESTIMONIALS: TestimonialItem[] = [
     company: 'Virtual Staging & Architectural Media',
     location: 'International',
     division: 'estate',
-    tag: 'VIRTUAL STAGING • 3D VISUALIZATION'
+    tag: 'VIRTUAL STAGING • 3D VISUALIZATION',
+    rating: 4.7,
   },
   {
     id: 'rev-carolyn',
@@ -466,18 +468,20 @@ export const AUTHENTIC_CLIENT_TESTIMONIALS: TestimonialItem[] = [
     company: 'Vaika Group Client Partner',
     location: 'United States',
     division: 'estate',
-    tag: 'PHOTO & VIDEO EDITING • 10-YEAR PARTNERSHIP'
+    tag: 'PHOTO & VIDEO EDITING • 10-YEAR PARTNERSHIP',
+    rating: 4.8,
   },
   {
     id: 'rev-anthony',
     quote:
       '“Been using Vaika Group for over a year, and have had nothing but a great experience. Fast, flexible, and reliable is the name of the real estate game, and they consistently deliver.”',
-    author: 'ANTHONY V.',
+    author: 'ANTHONY VILLANUEVA',
     role: 'Real Estate Media Client',
-    company: 'Vaika Group Client Partner',
+    company: 'V Films LLC',
     location: 'United States',
     division: 'estate',
-    tag: 'FAST TURNAROUND • RELIABILITY'
+    tag: 'FAST TURNAROUND • RELIABILITY',
+    rating: 4.8,
   },
   {
     id: 'rev-michael',
@@ -488,7 +492,8 @@ export const AUTHENTIC_CLIENT_TESTIMONIALS: TestimonialItem[] = [
     company: 'Vaika Group Client Partner',
     location: 'United States',
     division: 'estate',
-    tag: 'IMAGE EDITING • QUALITY STANDARDS'
+    tag: 'IMAGE EDITING • QUALITY STANDARDS',
+    rating: 4.7,
   }
 ];
 
@@ -1061,7 +1066,7 @@ export const TESTIMONIALS: TestimonialItem[] = AUTHENTIC_CLIENT_TESTIMONIALS;
 
 export const FOUNDER_DATA = {
   name: 'MURAMALLA VIJAY KUMAR',
-  protocol: 'V-CORE-001',
+  protocol: 'FOUNDING DIRECTOR',
   role: 'FOUNDER • VAIKA GROUP',
   titles: 'REAL ESTATE VISUAL EXPERT • VFX & CINEMATIC ARTIST • FOUNDER',
   quote:

@@ -12,9 +12,7 @@ import {
   Video,
   Sparkles,
   CheckCircle2,
-  Headphones,
   Star,
-  Quote,
 } from 'lucide-react';
 import {
   CREATIVE_TECH_STACK,
@@ -360,7 +358,7 @@ export function ValidationSection() {
                       AUTHENTIC VIDEO REVIEW
                     </span>
                     <span className="px-3 py-1 rounded bg-[#161720] border border-white/5 text-[#9ba1b3]">
-                      5.0 RATING
+                      {PABLO_VIDEO_TESTIMONIAL.rating ? `${PABLO_VIDEO_TESTIMONIAL.rating.toFixed(1)} RATING` : '4.9 RATING'}
                     </span>
                   </div>
 
@@ -430,11 +428,16 @@ export function ValidationSection() {
                         <span>VERIFIED CLIENT ENDORSEMENT</span>
                       </div>
 
-                      {/* 5-Star Rating */}
-                      <div className="flex items-center gap-1 px-2.5 py-1 rounded bg-[#161720] border border-[#d4af37]/30">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-[#d4af37] text-[#d4af37]" />
-                        ))}
+                      {/* Rating Stars + Score */}
+                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#161720] border border-[#d4af37]/30">
+                        <div className="flex items-center gap-0.5">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 fill-[#d4af37] text-[#d4af37]" />
+                          ))}
+                        </div>
+                        <span className="font-mono text-xs font-bold text-[#d4af37] border-l border-white/10 pl-1.5">
+                          {current.rating ? current.rating.toFixed(1) : '5.0'}
+                        </span>
                       </div>
 
                       {current.tag && (
@@ -507,7 +510,9 @@ export function ValidationSection() {
                       </div>
                       <div className="flex justify-between items-center text-[#9ba1b3]">
                         <span>EXPERIENCE:</span>
-                        <span className="text-[#d4af37] font-semibold">5.0 / 5.0 RATING</span>
+                        <span className="text-[#d4af37] font-semibold">
+                          {current.rating ? `${current.rating.toFixed(1)} / 5.0 RATING` : '5.0 / 5.0 RATING'}
+                        </span>
                       </div>
                     </div>
 

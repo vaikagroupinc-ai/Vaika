@@ -22,6 +22,7 @@ import { CrossDivisionNav } from '@/components/layout/CrossDivisionNav';
 import { ServiceDivisionData, ServiceDetail, DemonstrationItem } from '@/types';
 import { ServiceDetailModal } from './ServiceDetailModal';
 import { ProjectGalleryModal } from './ProjectGalleryModal';
+import { RealEstateFreeDemoSection } from './RealEstateFreeDemoSection';
 import { submitContactInquiry, INQUIRY_RECIPIENT } from '@/lib/contactSubmit';
 
 interface ServicePageTemplateProps {
@@ -47,7 +48,21 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
     phone: '',
     selectedService: '',
     projectScope: '',
+    isFreeTrial: false,
+    rawFilesLink: '',
   });
+
+  const handleClaimFreeDemo = () => {
+    setFormState((prev) => ({
+      ...prev,
+      isFreeTrial: true,
+      selectedService: '5-Photo Complimentary Benchmark Demo',
+      projectScope:
+        prev.projectScope ||
+        'Requesting 5-Photo Complimentary Benchmark Demo (12–24h turnaround SLA).',
+    }));
+    scrollTo('#contact');
+  };
 
   // Flattened services list
   const allServices = useMemo(() => {
@@ -95,6 +110,11 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
     setFallbackMailtoUrl(null);
 
     const chosenService = formState.selectedService || inquiryService || '';
+    const scopeWithLink =
+      formState.isFreeTrial && formState.rawFilesLink
+        ? `${formState.projectScope}\n\nRAW Files Link: ${formState.rawFilesLink}\n[5-Photo Complimentary Benchmark Demo Requested]`
+        : formState.projectScope;
+
     const result = await submitContactInquiry({
       mode: 'client',
       name: formState.name,
@@ -102,8 +122,12 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
       company: formState.company,
       phone: formState.phone,
       division: data.title,
-      selectedService: chosenService || undefined,
-      scope: formState.projectScope,
+      selectedService: formState.isFreeTrial
+        ? '5-Photo Complimentary Benchmark Demo'
+        : chosenService || undefined,
+      volume: formState.isFreeTrial ? '5 Photos Complimentary Demo' : undefined,
+      portfolioUrl: formState.rawFilesLink || undefined,
+      scope: scopeWithLink,
     });
 
     setIsSubmitting(false);
@@ -126,6 +150,8 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
       phone: '',
       selectedService: '',
       projectScope: '',
+      isFreeTrial: false,
+      rawFilesLink: '',
     });
     setInquiryService('');
   };
@@ -197,14 +223,14 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
             {/* CTAs */}
             <div data-shrink-lens className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
               <button
-                onClick={() => scrollTo('#contact')}
+                onClick={data.key === 'estate' ? handleClaimFreeDemo : () => scrollTo('#contact')}
                 style={{
                   backgroundColor: data.accentColor,
                   color: '#050507',
                 }}
                 className="px-6 py-3.5 rounded font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all hover:brightness-110 shadow-xl cursor-pointer"
               >
-                <span>DISCUSS YOUR PROJECT</span>
+                <span>{data.key === 'estate' ? 'CLAIM 5 FREE DEMO EDITS' : 'DISCUSS YOUR PROJECT'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
@@ -263,6 +289,18 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
           )}
         </div>
       </section>
+
+      {/* ============================================================
+          SECTION 1.5 — REAL ESTATE 5-PHOTO FREE DEMO BENCHMARK
+          Positioned right after Hero & right before "CINEMATIC PROPERTY ASSETS..."
+      ============================================================ */}
+      {data.key === 'estate' && (
+        <RealEstateFreeDemoSection
+          accentColor={data.accentColor}
+          onClaimFreeDemo={handleClaimFreeDemo}
+          onViewPortfolio={() => scrollTo('#portfolio')}
+        />
+      )}
 
       {/* ============================================================
           SECTION 2 — INTRODUCTION
@@ -977,6 +1015,72 @@ export function ServicePageTemplate({ data, heroElement }: ServicePageTemplatePr
                   className="w-full bg-[#12131a] px-3.5 py-2.5 rounded text-xs font-mono text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-white/30"
                 />
               </div>
+            </div>
+
+            {/* Free Trial / Demo Benchmark Checkbox (Available for Real Estate & Division Inquiries) */}
+            <div
+              className={`p-4 rounded-xl border transition-all ${
+                formState.isFreeTrial
+                  ? 'bg-[#181714] border-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.15)]'
+                  : 'bg-[#12131a] border-white/10 hover:border-white/20'
+              }`}
+            >
+              <label className="flex items-start gap-3 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={formState.isFreeTrial}
+                  onChange={(e) => {
+                    const checked = e.target.checked;
+                    setFormState((prev) => ({
+                      ...prev,
+                      isFreeTrial: checked,
+                      selectedService: checked
+                        ? '5-Photo Complimentary Benchmark Demo'
+                        : prev.selectedService === '5-Photo Complimentary Benchmark Demo'
+                        ? ''
+                        : prev.selectedService,
+                      projectScope:
+                        checked && !prev.projectScope
+                          ? 'Requesting 5-Photo Complimentary Benchmark Demo (12–24h turnaround SLA).'
+                          : prev.projectScope,
+                    }));
+                  }}
+                  className="w-4 h-4 mt-0.5 rounded accent-[#d4af37] cursor-pointer"
+                />
+                <div className="flex flex-col">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="font-mono text-xs font-bold text-[#f5f6fa] uppercase tracking-wider">
+                      CLAIM 5-PHOTO COMPLIMENTARY BENCHMARK DEMO
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#d4af37] text-[10px] font-mono font-bold uppercase">
+                      100% FREE • 12–24H SLA
+                    </span>
+                  </div>
+                  <p className="font-['Manrope'] text-xs text-[#9ba1b3] mt-1 leading-relaxed">
+                    Test our production standards on 5 RAW photos (HDR Flambient, Day-to-Dusk Twilight, Virtual Staging, or Aerial Drone Color) with zero financial commitment.
+                  </p>
+                </div>
+              </label>
+
+              {/* Expandable RAW Files Link Input when Free Trial is checked */}
+              {formState.isFreeTrial && (
+                <div className="mt-3 pt-3 border-t border-white/10 flex flex-col gap-1.5 animate-in fade-in">
+                  <label className="font-mono text-[11px] uppercase tracking-wider text-[#d4af37] font-semibold flex items-center justify-between">
+                    <span>RAW FILES LINK (DROPBOX / GOOGLE DRIVE / WETRANSFER)</span>
+                    <span className="text-[10px] text-[#9ba1b3]">OPTIONAL OR PASTE BELOW</span>
+                  </label>
+                  <input
+                    type="url"
+                    value={formState.rawFilesLink}
+                    onChange={(e) => setFormState({ ...formState, rawFilesLink: e.target.value })}
+                    placeholder="https://www.dropbox.com/scl/fo/... or Google Drive / WeTransfer link"
+                    className="w-full bg-[#0a0a0f] px-3.5 py-2.5 rounded text-xs font-mono text-[#f5f6fa] placeholder:text-[#525866] border border-[#d4af37]/40 focus:outline-none focus:border-[#d4af37]"
+                  />
+                  <span className="font-mono text-[10px] text-[#9ba1b3]/80">
+                    Ensure link permissions are set to &quot;Anyone with the link can view / download&quot;.
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Target Service Dropdown */}

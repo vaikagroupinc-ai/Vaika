@@ -12,9 +12,11 @@ import { TeamSection } from '@/components/sections/TeamSection';
 import { PortfolioSection } from '@/components/sections/PortfolioSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { ProjectModal } from '@/components/ui/ProjectModal';
+import { ProjectGalleryModal } from '@/components/services/ProjectGalleryModal';
 import { TeamModal } from '@/components/ui/TeamModal';
 import { VaikaIntroWrapper } from '@/components/intro/VaikaIntroWrapper';
-import { DivisionKey, ProjectItem, TeamMember } from '@/types';
+import { REAL_ESTATE_PORTFOLIO_PROJECTS } from '@/data/realEstatePortfolioGallery';
+import { DemonstrationItem, DivisionKey, ProjectItem, TeamMember } from '@/types';
 import dynamic from 'next/dynamic';
 
 const Interactive3DViewer = dynamic(
@@ -38,6 +40,7 @@ const Interactive3DViewer = dynamic(
 export default function Home() {
   const [selectedDivision, setSelectedDivision] = useState<DivisionKey | null>(null);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [selectedDemonstration, setSelectedDemonstration] = useState<DemonstrationItem | null>(null);
   const [selectedTeamMember, setSelectedTeamMember] = useState<TeamMember | null>(null);
   const [activeSection, setActiveSection] = useState<string>('hero');
 
@@ -131,7 +134,27 @@ export default function Home() {
 
           {/* SECTION 05: SELECTED WORK / PORTFOLIO */}
           <PortfolioSection
-            onSelectProject={(project) => setSelectedProject(project)}
+            onSelectProject={(project) => {
+              if (project.category === 'estate') {
+                const demo = REAL_ESTATE_PORTFOLIO_PROJECTS.find(
+                  (d) =>
+                    d.image === project.image ||
+                    d.id === project.id ||
+                    d.id === `demo-${project.id.replace(/^estate-/, '')}` ||
+                    (project.id === 'estate-hdr-flambient' && d.id === 'demo-flambient') ||
+                    (project.id === 'estate-day-to-dusk' && d.id === 'demo-day-dusk') ||
+                    (project.id === 'estate-virtual-staging' && d.id === 'demo-virtual-staging') ||
+                    (project.id === 'estate-aerial-drone' && d.id === 'demo-aerial-drone') ||
+                    (project.id === 'estate-matterport-3d' && d.id === 'demo-matterport-3d')
+                );
+                if (demo) {
+                  setSelectedDemonstration(demo);
+                  return;
+                }
+              }
+              setSelectedProject(project);
+            }}
+            onSelectDemonstration={(demo) => setSelectedDemonstration(demo)}
           />
 
           {/* SECTION 06: CONTACT / ENGAGEMENT MATRIX */}
@@ -156,6 +179,13 @@ export default function Home() {
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
           onSelectProject={(proj) => setSelectedProject(proj)}
+        />
+
+        {/* Real Estate Capability Benchmark Slideshow / Gallery Modal */}
+        <ProjectGalleryModal
+          project={selectedDemonstration}
+          accentColor="#d4af37"
+          onClose={() => setSelectedDemonstration(null)}
         />
 
         {/* Team Member Biography Modal */}
