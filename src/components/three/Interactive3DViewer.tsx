@@ -300,6 +300,7 @@ export function Interactive3DViewer() {
   const [mode, setMode] = useState<ShadingMode>('rtx');
   const [fps] = useState('60.0');
   const [isVisible, setIsVisible] = useState(false);
+  const [hasEverBeenVisible, setHasEverBeenVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -313,8 +314,11 @@ export function Interactive3DViewer() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setHasEverBeenVisible(true);
+        }
       },
-      { rootMargin: '100px' }
+      { rootMargin: '250px' }
     );
 
     const currentEl = containerRef.current;
@@ -390,36 +394,63 @@ export function Interactive3DViewer() {
 
       {/* 3D Canvas Area */}
       <div className="relative h-[420px] lg:h-[500px] w-full bg-[#050507]">
-        <Canvas
-          camera={{ position: [4, 3, 5], fov: 42 }}
-          dpr={isMobile ? [1, 1.25] : [1, 1.75]}
-          gl={{ antialias: !isMobile, alpha: false, powerPreference: 'high-performance' }}
-          className="w-full h-full cursor-grab active:cursor-grabbing"
-        >
-          <color attach="background" args={[mode === 'clay' ? '#181922' : mode === 'rtx' ? '#08090f' : '#050507']} />
-          <ambientLight intensity={mode === 'clay' ? 0.95 : mode === 'rtx' ? 1.15 : 0.6} color="#f8fafc" />
-          <directionalLight position={[6, 9, 5]} intensity={mode === 'clay' ? 1.6 : 2.4} color="#fffcf2" />
-          <directionalLight position={[-6, 5, -5]} intensity={mode === 'rtx' ? 1.2 : 0.6} color="#94a3b8" />
-          
-          {/* Architectural Interior & Landscape Point Lights (Adaptive for mobile) */}
-          <pointLight position={[-0.4, 0.1, 0.3]} intensity={mode === 'rtx' ? 3.5 : 0} distance={7} color="#ffbe55" />
-          {!isMobile && (
-            <>
-              <pointLight position={[1.3, -0.3, 1.0]} intensity={mode === 'rtx' ? 2.8 : 0} distance={6} color="#00e5ff" />
-              <pointLight position={[0.6, 1.2, 1.8]} intensity={mode === 'rtx' ? 2.0 : 0} distance={5} color="#ffd88a" />
-            </>
-          )}
-
-          <Suspense fallback={null}>
-            <ModelArchitecture mode={mode} isVisible={isVisible} />
-            <OrbitControls
-              enableZoom={false}
-              autoRotate={false}
-              maxPolarAngle={Math.PI / 2 + 0.1}
-              minPolarAngle={Math.PI / 6}
+        {hasEverBeenVisible ? (
+          <Canvas
+            camera={{ position: [4, 3, 5], fov: 42 }}
+            dpr={isMobile ? [1, 1.25] : [1, 1.75]}
+            gl={{ antialias: !isMobile, alpha: false, powerPreference: 'high-performance' }}
+            className="w-full h-full cursor-grab active:cursor-grabbing"
+          >
+            <color
+              attach="background"
+              args={[mode === 'clay' ? '#181922' : mode === 'rtx' ? '#08090f' : '#050507']}
             />
-          </Suspense>
-        </Canvas>
+            <ambientLight intensity={mode === 'clay' ? 0.95 : mode === 'rtx' ? 1.15 : 0.6} color="#f8fafc" />
+            <directionalLight position={[6, 9, 5]} intensity={mode === 'clay' ? 1.6 : 2.4} color="#fffcf2" />
+            <directionalLight position={[-6, 5, -5]} intensity={mode === 'rtx' ? 1.2 : 0.6} color="#94a3b8" />
+
+            {/* Architectural Interior & Landscape Point Lights (Adaptive for mobile) */}
+            <pointLight
+              position={[-0.4, 0.1, 0.3]}
+              intensity={mode === 'rtx' ? 3.5 : 0}
+              distance={7}
+              color="#ffbe55"
+            />
+            {!isMobile && (
+              <>
+                <pointLight
+                  position={[1.3, -0.3, 1.0]}
+                  intensity={mode === 'rtx' ? 2.8 : 0}
+                  distance={6}
+                  color="#00e5ff"
+                />
+                <pointLight
+                  position={[0.6, 1.2, 1.8]}
+                  intensity={mode === 'rtx' ? 2.0 : 0}
+                  distance={5}
+                  color="#ffd88a"
+                />
+              </>
+            )}
+
+            <Suspense fallback={null}>
+              <ModelArchitecture mode={mode} isVisible={isVisible} />
+              <OrbitControls
+                enableZoom={false}
+                autoRotate={false}
+                maxPolarAngle={Math.PI / 2 + 0.1}
+                minPolarAngle={Math.PI / 6}
+              />
+            </Suspense>
+          </Canvas>
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-[#08090f] text-[#9ba1b3]">
+            <Activity className="w-7 h-7 animate-pulse text-[#d4af37]/80 mb-2" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#cbd0df]">
+              UE5.4 RAYTRACER VIEWPORT // PROXIMITY STANDBY
+            </span>
+          </div>
+        )}
 
         {/* L-Shape Corner Alignment Ticks */}
         <div className="absolute top-4 left-4 w-4 h-4 border-l-2 border-t-2 border-[#00f0ff]/60 pointer-events-none" />

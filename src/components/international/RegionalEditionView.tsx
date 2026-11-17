@@ -66,7 +66,7 @@ export function RegionalEditionView({
               className="inline-flex items-center gap-2 font-['Space_Grotesk'] text-base sm:text-lg font-bold tracking-tight text-[#f5f6fa] hover:text-[#d4af37] transition-colors"
             >
               <Image
-                src="/vaika-logo.png"
+                src="/vaika-logo-sm.webp"
                 width={28}
                 height={28}
                 alt="VAIKA GROUP Logo"

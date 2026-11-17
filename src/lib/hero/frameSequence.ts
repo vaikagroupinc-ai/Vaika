@@ -43,6 +43,7 @@ export class VillaFrameSequenceLoader {
   private queue: number[] = [];
   private activeWorkers = 0;
   private disposed = false;
+  private restStarted = false;
   private criticalFailures = 0;
 
   constructor(options: FrameSequenceOptions = {}) {
@@ -101,8 +102,64 @@ export class VillaFrameSequenceLoader {
     return ordered;
   }
 
-  public start(): void {
+  public start(deferRest = true): void {
     if (this.disposed) return;
+
+    // Immediately schedule only the first two keyframes so the opening view is instant
+    const immediateFrames = [this.activeIndices[0], this.activeIndices[1]].filter(
+      (idx): idx is number => idx !== undefined
+    );
+    for (const idx of immediateFrames) {
+      if (!this.decodedCache.has(idx) && !this.pendingUrls.has(idx)) {
+        this.pendingUrls.add(idx);
+        this.activeWorkers += 1;
+        void this.loadFrame(idx);
+      }
+    }
+
+    const startRest = () => {
+      if (this.disposed || this.restStarted) return;
+      this.restStarted = true;
+      this.pumpQueue();
+    };
+
+    if (!deferRest) {
+      startRest();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      const triggerEvents = ['scroll', 'wheel', 'touchstart', 'keydown'] as const;
+      const onUserInteract = () => {
+        triggerEvents.forEach((evt) => window.removeEventListener(evt, onUserInteract));
+        startRest();
+      };
+      triggerEvents.forEach((evt) =>
+        window.addEventListener(evt, onUserInteract, { passive: true, once: true })
+      );
+
+      if ('requestIdleCallback' in window) {
+        (
+          window as Window & {
+            requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number;
+          }
+        ).requestIdleCallback(
+          () => {
+            startRest();
+          },
+          { timeout: 2500 }
+        );
+      } else {
+        setTimeout(startRest, 2000);
+      }
+    } else {
+      startRest();
+    }
+  }
+
+  public ensureStreaming(): void {
+    if (this.disposed || this.restStarted) return;
+    this.restStarted = true;
     this.pumpQueue();
   }
 

@@ -126,7 +126,7 @@ export function ServicesSection({}: ServicesSectionProps = {}) {
                   <span>EXPLORE DIVISION</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <span className="font-mono text-[10px] text-[#525866]">V4.9-EST</span>
+                <span className="font-mono text-[10px] text-[#9ba1b3]">V4.9-EST</span>
               </div>
             </Link>
           )}
@@ -199,7 +199,7 @@ export function ServicesSection({}: ServicesSectionProps = {}) {
                   <span>EXPLORE DIVISION</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <span className="font-mono text-[10px] text-[#525866]">OPS // v4.2</span>
+                <span className="font-mono text-[10px] text-[#9ba1b3]">OPS // v4.2</span>
               </div>
             </Link>
           )}
@@ -256,7 +256,7 @@ export function ServicesSection({}: ServicesSectionProps = {}) {
                   <span>EXPLORE DIVISION</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <span className="font-mono text-[10px] text-[#525866]">ACC // 99.9%</span>
+                <span className="font-mono text-[10px] text-[#9ba1b3]">ACC // 99.9%</span>
               </div>
             </Link>
           )}
@@ -323,7 +323,7 @@ export function ServicesSection({}: ServicesSectionProps = {}) {
                   <span>EXPLORE DIVISION</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <span className="font-mono text-[10px] text-[#525866]">GROWTH // 360</span>
+                <span className="font-mono text-[10px] text-[#9ba1b3]">GROWTH // 360</span>
               </div>
             </Link>
           )}

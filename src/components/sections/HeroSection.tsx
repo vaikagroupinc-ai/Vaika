@@ -150,6 +150,7 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
         {
           onFrameProgress: (progress) => {
             currentProgress = progress;
+            loaderInstance?.ensureStreaming();
             if (shouldScrubFrames) {
               scheduleRender(false);
             }
@@ -212,8 +213,7 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
           src={HERO_POSTER_SRC}
           alt="Contemporary charred-timber architectural residence at twilight sunset"
           fill
-          preload
-          unoptimized
+          priority
           sizes="100vw"
           className="object-cover object-[50%_48%]"
         />

@@ -220,7 +220,7 @@ export function ValidationSection() {
                     src="/videos/Pablo.mp4"
                     poster="/videos/pablo_poster.jpg"
                     playsInline
-                    preload="metadata"
+                    preload="none"
                     onTimeUpdate={handleTimeUpdate}
                     onLoadedMetadata={handleLoadedMetadata}
                     onEnded={() => setIsVideoPlaying(false)}

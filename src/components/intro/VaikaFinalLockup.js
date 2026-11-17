@@ -24,8 +24,14 @@ export class VaikaFinalLockup {
 
     const logoImg = document.createElement('img');
     logoImg.className = 'vaika-medium-logo-img';
-    logoImg.src = '/vaika-logo.png';
+    logoImg.src = '/vaika-logo.webp';
+    logoImg.onerror = () => {
+      logoImg.src = '/vaika-logo.png';
+    };
     logoImg.alt = 'VAIKA Emblem';
+    logoImg.width = 300;
+    logoImg.height = 200;
+    logoImg.decoding = 'async';
     logoImg.draggable = false;
     this.emblemEl.appendChild(logoImg);
 

@@ -84,7 +84,7 @@ export function Navbar({ activeSection }: NavbarProps) {
               className="flex items-center gap-2.5 shrink-0 group focus:outline-none"
             >
               <Image
-                src="/vaika-logo.png"
+                src="/vaika-logo-sm.webp"
                 width={32}
                 height={32}
                 alt="VAIKA GROUP Logo"

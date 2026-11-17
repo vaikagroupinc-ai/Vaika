@@ -148,7 +148,7 @@ export function DivisionNavbar({ division }: DivisionNavbarProps) {
               title="Return to Vaika Group Home"
             >
               <Image
-                src="/vaika-logo.png"
+                src="/vaika-logo-sm.webp"
                 width={32}
                 height={32}
                 alt="VAIKA GROUP Logo"

@@ -343,7 +343,7 @@ export function ContactSection({
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
                   placeholder="Marcus Vance // Property Group"
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#d4af37]"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#d4af37]"
                 />
               </div>
 
@@ -362,7 +362,7 @@ export function ContactSection({
                   value={clientEmail}
                   onChange={(e) => setClientEmail(e.target.value)}
                   placeholder="client@sovereign-estates.com"
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#d4af37]"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#d4af37]"
                 />
               </div>
 
@@ -380,7 +380,7 @@ export function ContactSection({
                   value={clientPhone}
                   onChange={(e) => setClientPhone(e.target.value)}
                   placeholder="+44 (0) 20 7946 0912"
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#d4af37]"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#d4af37]"
                 />
               </div>
 
@@ -420,7 +420,7 @@ export function ContactSection({
                   value={clientScope}
                   onChange={(e) => setClientScope(e.target.value)}
                   placeholder="Describe the physical location, scale, digital specifications, CAD availability or AI workflows required..."
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#d4af37] resize-none"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#d4af37] resize-none"
                 />
               </div>
 
@@ -517,7 +517,7 @@ export function ContactSection({
                   value={talentName}
                   onChange={(e) => setTalentName(e.target.value)}
                   placeholder="Elena Vance"
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#00f0ff]"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#00f0ff]"
                 />
               </div>
 
@@ -536,7 +536,7 @@ export function ContactSection({
                   value={talentEmail}
                   onChange={(e) => setTalentEmail(e.target.value)}
                   placeholder="elena.vance@studio.ai"
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#00f0ff]"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#00f0ff]"
                 />
               </div>
 
@@ -555,7 +555,7 @@ export function ContactSection({
                   value={portfolioUrl}
                   onChange={(e) => setPortfolioUrl(e.target.value)}
                   placeholder="https://artstation.com/artist"
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#00f0ff]"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#00f0ff]"
                 />
               </div>
 
@@ -594,7 +594,7 @@ export function ContactSection({
                   value={talentStatement}
                   onChange={(e) => setTalentStatement(e.target.value)}
                   placeholder="Describe your core achievements in real-time graphics, generative intelligence or architectural cinema..."
-                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#00f0ff] resize-none"
+                  className="w-full bg-[#12131a] px-4 py-3 rounded text-sm font-['Manrope'] text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#00f0ff] resize-none"
                 />
               </div>
 

@@ -240,7 +240,7 @@ export function DivisionFooter({ division }: DivisionFooterProps) {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="YOUR EMAIL"
                 required
-                className="w-full bg-[#12131a] px-3 py-2 rounded text-xs font-mono text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-white/30"
+                className="w-full bg-[#12131a] px-3 py-2 rounded text-xs font-mono text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-white/30"
               />
               <button
                 type="submit"

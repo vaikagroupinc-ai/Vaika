@@ -80,11 +80,12 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2.5 group w-fit">
               <Image
-                src="/vaika-logo.png"
+                src="/vaika-logo-sm.webp"
                 width={28}
                 height={28}
                 alt="VAIKA GROUP Logo"
                 className="w-7 h-7 object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
               <span className="font-['Space_Grotesk'] text-lg font-bold uppercase text-[#f5f6fa] tracking-tight group-hover:text-[#d4af37] transition-colors">
                 VAIKA GROUP
@@ -206,7 +207,7 @@ export function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="NODE@CREDENTIAL"
                 required
-                className="w-full bg-[#12131a] px-3 py-2 rounded text-xs font-mono text-[#f5f6fa] placeholder:text-[#525866] border border-white/5 focus:outline-none focus:border-[#d4af37]"
+                className="w-full bg-[#12131a] px-3 py-2 rounded text-xs font-mono text-[#f5f6fa] placeholder:text-[#8a91a0] border border-white/5 focus:outline-none focus:border-[#d4af37]"
               />
               <button
                 type="submit"
