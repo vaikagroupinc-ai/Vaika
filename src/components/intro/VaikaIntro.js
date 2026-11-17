@@ -17,7 +17,6 @@ export class VaikaIntro {
     this.isForceIntro = urlParams ? urlParams.get('intro') === 'force' : false;
     this.hasSeenIntro = typeof window !== 'undefined' && sessionStorage.getItem('vaika_intro_seen') === 'true';
     this.prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    this.isAuditEngine = typeof navigator !== 'undefined' && /Lighthouse|Google-PageSpeed|PTST|HeadlessChrome/i.test(navigator.userAgent);
 
     this.videoContainer = null;
     this.videoComponent = null;
@@ -31,8 +30,8 @@ export class VaikaIntro {
   init() {
     if (!this.rootContainer) return;
 
-    // Check session or audit runner
-    if ((this.hasSeenIntro || this.isAuditEngine) && !this.isForceIntro) {
+    // Check session
+    if (this.hasSeenIntro && !this.isForceIntro) {
       this.skipInstantly();
       return;
     }
@@ -92,18 +91,9 @@ export class VaikaIntro {
     this.rootContainer.addEventListener('click', () => {
       this.transitionToWebsite();
     }, { once: true });
-
-    // Safety timeout to ensure user is never blocked if network stalls video
-    this.safetyTimeout = setTimeout(() => {
-      this.transitionToWebsite();
-    }, 5500);
   }
 
   transitionToWebsite() {
-    if (this.safetyTimeout) {
-      clearTimeout(this.safetyTimeout);
-      this.safetyTimeout = null;
-    }
     if (this.isTransitioned) return;
     this.isTransitioned = true;
 
@@ -157,10 +147,6 @@ export class VaikaIntro {
   }
 
   dispose() {
-    if (this.safetyTimeout) {
-      clearTimeout(this.safetyTimeout);
-      this.safetyTimeout = null;
-    }
     if (this.videoComponent) this.videoComponent.dispose();
     if (this.finalLockup) this.finalLockup.kill();
   }
